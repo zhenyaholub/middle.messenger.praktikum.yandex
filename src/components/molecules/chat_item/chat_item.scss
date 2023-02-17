@@ -1,0 +1,35 @@
+.chat_item {
+  padding: 12px 0;
+  display: flex;
+  &__middle {
+    margin: 0 0 0 10px;
+    flex-grow: 1;
+  }
+  &__name {
+    color: $textBlack;
+    font-size: 13px;
+  }
+  &__message {
+    font-size: 12px;
+    color: $grey3;
+  }
+  &__end {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__last-message-time {
+    font-size: 9px;
+    color: $grey3;
+  }
+  &__unread-messages-count {
+    @include flex-center();
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $blue;
+    color: $white;
+    font-size: 11px;
+  }
+}

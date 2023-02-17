@@ -1,0 +1,13 @@
+.message_block {
+  @include flex-col();
+  margin: 0 0 48px 0;
+  &__date {
+    margin: 0 0 38px 0;
+    font-size: 12px;
+    text-align: center;
+    color: $grey3;
+  }
+  &:last-child div {
+    margin: 0;
+  }
+}

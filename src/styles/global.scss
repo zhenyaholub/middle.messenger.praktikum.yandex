@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap");
+
+// Variables
+@import "variables.scss";
+
+// Mixins
+@import "mixins.scss";
+
+// Pages
+@import "404.scss";
+@import "500.scss";
+@import "chats_without_active.scss";
+@import "chats.scss";
+@import "profile.scss";
+@import "sign_in.scss";
+@import "sign_up.scss";
+
+// Components
+@import "../components/atoms/input/input.scss";
+@import "../components/atoms/modal/modal.scss";
+@import "../components/atoms/label/label.scss";
+@import "../components/molecules/field/field.scss";
+@import "../components/atoms/button/button.scss";
+@import "../components/molecules/message/message.scss";
+@import "../components/molecules/back/back.scss";
+@import "../components/atoms/back_area/back_area.scss";
+@import "../components/atoms/avatar/avatar.scss";
+@import "../components/atoms/small_avatar/small_avatar.scss";
+@import "../components/molecules/profile_item/profile_item.scss";
+@import "../components/molecules/action/action.scss";
+@import "../components/molecules/profile_link/profile_link.scss";
+@import "../components/molecules/search/search.scss";
+@import "../components/molecules/chat_item/chat_item.scss";
+@import "../components/molecules/empty/empty.scss";
+@import "../components/molecules/message_actions_area/message_actions_area.scss";
+@import "../components/molecules/companion/companion.scss";
+@import "../components/molecules/actions/actions.scss";
+@import "../components/molecules/message_block/message_block.scss";
+@import "../components/molecules/companion_message/companion_message.scss";
+@import "../components/molecules/companion_message_image/companion_message_image.scss";
+@import "../components/molecules/user_message/user_message.scss";
+@import "../components/organisms/dialog/dialog.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col-horisontal-center {
+  @include flex-col();
+  align-items: center;
+}
+
+.form-title {
+  color: $textBlack;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.padding {
+  padding: 20px 0;
+}
+
+.padding2 {
+  padding: 10px 15px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.blue_link {
+  font-size: 11px;
+  color: $blue;
+  transition: color 0.2s ease;
+  &:hover {
+    color: $buttonHoverBackgroundColor;
+  }
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.rotate-180deg {
+  transform: rotate(180deg);
+}
