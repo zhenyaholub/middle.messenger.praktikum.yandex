@@ -1,0 +1,17 @@
+.companion {
+  padding: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $grey2;
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+  &__name {
+    margin: 0 0 0 10px;
+    font-weight: 600;
+    font-size: 13px;
+    color: $textBlack;
+  }
+}

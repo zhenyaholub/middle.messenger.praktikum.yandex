@@ -1,0 +1,26 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='stylesheet' href='./styles/global.scss' />
+    <title>Sign in</title>
+  </head>
+  <body class="padding flex-center">
+    {{#> atoms/modal/modal class="modal"}}
+    {{> atoms/title/title text="Вход" style="margin:0 0 40px 0" }}
+    {{#> atoms/wrapper/wrapper class="full-width" style="margin:0 0 159px 0" }}
+    {{#> molecules/field/field class="full-width field" }}
+    {{> atoms/label/label text="Логин" for="login" class="label" }}
+    {{> atoms/input/input type="text" id="login" class="input" }}
+    {{/molecules/field/field}}
+    {{#> molecules/field/field class="full-width field" }}
+    {{> atoms/label/label text="Пароль" for="password" class="label" }}
+    {{> atoms/input/input type="password" id="password" class="input" }}
+    {{/molecules/field/field}}
+    {{/atoms/wrapper/wrapper}}
+    {{> atoms/button/button type="submit" text="Авторизоваться" class="full-width button" style="margin:0 0 14px 0" }}
+    {{> atoms/link/link href="sign_up.hbs" text="Нет аккаунта?" class="link blue_link" }}
+    {{/atoms/modal/modal}}
+  </body>
+</html>

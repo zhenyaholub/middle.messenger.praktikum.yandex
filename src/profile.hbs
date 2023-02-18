@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/global.scss" />
+    <title>Profile</title>
+  </head>
+  <body class="profile_body padding2">
+    {{#> atoms/back_area/back_area }}
+    {{> molecules/back/back type="button" }}
+    {{/atoms/back_area/back_area}}
+    {{#> atoms/wrapper/wrapper class="flex-col-horisontal-center profile_body__data" }}
+    {{#> atoms/avatar/avatar style="margin:0 0 30px 0" }}
+    <img src="../static/icons/avatar.svg" alt="Аватар">
+    {{/atoms/avatar/avatar}}
+    <p>Иван</p>
+    <div class="full-width" style="margin: 20px 0 0 0;">
+      {{> molecules/profile_item/profile_item key="Почта" value="pochta@yandex.ru"}}
+      {{> molecules/profile_item/profile_item key="Логин" value="ivanivanov"}}
+      {{> molecules/profile_item/profile_item key="Имя" value="Иван"}}
+      {{> molecules/profile_item/profile_item key="Фамилия" value="Иванов"}}
+      {{> molecules/profile_item/profile_item key="Имя в чате" value="Иван"}}
+      {{> molecules/profile_item/profile_item key="Телефон" value="+7 (909) 967 30 30" style="border-bottom:none"}}
+      <div style="margin:20px 0 0 0">
+      {{> molecules/action/action text="Изменить данные" textStyle="color:#3369F3" }}
+      {{> molecules/action/action text="Изменить пароль" textStyle="color:#3369F3"}}
+      {{> molecules/action/action text="Выйти" style="border-bottom:none" textStyle="color:#FF0000" }}
+      </div>
+    </div>
+    {{/atoms/wrapper/wrapper}}
+  </body>
+</html>

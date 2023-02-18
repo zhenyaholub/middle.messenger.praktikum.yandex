@@ -1,0 +1,9 @@
+@media (min-width: $md) {
+  .profile_body {
+    @include flex-center();
+  }
+
+  .profile_body__data {
+    width: 40vw;
+  }
+}
