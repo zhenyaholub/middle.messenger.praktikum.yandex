@@ -1,0 +1,48 @@
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/global.scss" />
+    <title>Sign up</title>
+  </head>
+  <body class="padding flex-center">
+    <main style="width:90%; max-width: 340px;">
+    {{#> modal/modal class="modal"}}
+    {{> title/title text="Регистрация" style="margin:0 0 40px 0" }}
+    {{#> wrapper/wrapper class="full-width" style="margin:0 0 47px 0" }}
+    {{#> field/field class="full-width field" }}
+    {{> label/label text="Почта" for="email" class="label" }}
+    {{> input/input type="email" id="email" class="input" }}
+    {{/field/field}}
+    {{#> field/field class="full-width field" }}
+    {{> label/label text="Логин" for="login" class="label" }}
+    {{> input/input type="text" id="login" class="input" }}
+    {{/field/field}}
+    {{#> field/field class="full-width field" }}
+    {{> label/label text="Имя" for="first_name" class="label" }}
+    {{> input/input type="text" id="first_name" class="input" }}
+    {{/field/field}}
+    {{#> field/field class="full-width field" }}
+    {{> label/label text="Фамилия" for="second_name" class="label" }}
+    {{> input/input type="text" id="second_name" class="input" }}
+    {{/field/field}}
+    {{#> field/field class="full-width field" }}
+    {{> label/label text="Телефон" for="phone" class="label" }}
+    {{> input/input type="tel" id="phone" class="input" }}
+    {{/field/field}}
+    {{#> field/field class="full-width field" }}
+    {{> label/label text="Пароль" for="password" class="label" }}
+    {{> input/input type="password" id="password" class="input" }}
+    {{/field/field}}
+    {{#> field/field class="full-width field" }}
+    {{> label/label text="Пароль (ещё раз)" for="password_again" class="label" }}
+    {{> input/input type="password" id="password_again" class="input" }}
+    {{/field/field}}
+    {{/wrapper/wrapper}}
+    {{> button/button type="submit" text="Зарегистрироваться" class="full-width button" style="margin:0 0 14px 0" }}
+    {{> link/link href="/src/pages/index.hbs" text="Войти" class="link blue_link" }}
+    {{/modal/modal}}
+    </main>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/global.scss" />
+    <title>Chats</title>
+  </head>
+  <body>
+    <main class="flex overflow-x-hidden">
+      <div class="chats_block">
+        <div class="full-width chats_block__top">
+        {{> profile_link/profile_link }}
+        {{> search/search }}
+        </div>
+        <div style="width:100%">
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+         {{> chat_item/chat_item name="Андрей" lastMessage="Привет" lastMessageTime="10:57" unreadMessagesCount="2" }}
+        </div>
+      </div>
+      {{> dialog/dialog }}
+    </main>
+  </body>
+</html>

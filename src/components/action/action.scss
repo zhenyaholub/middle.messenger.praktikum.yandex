@@ -1,0 +1,10 @@
+.action {
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid $grey2;
+  &__link {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 13px;
+  }
+}
