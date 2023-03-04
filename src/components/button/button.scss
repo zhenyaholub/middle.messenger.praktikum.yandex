@@ -1,0 +1,14 @@
+.button {
+  padding: 12px 0;
+  background: #3369f3;
+  border: none;
+  border-radius: 8px;
+  color: $white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  &:hover {
+    background-color: $buttonHoverBackgroundColor;
+  }
+}

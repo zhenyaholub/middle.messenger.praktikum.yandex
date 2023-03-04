@@ -1,0 +1,17 @@
+.companion_message {
+  @include flex-col();
+  margin: 0 0 10px 0;
+  align-items: end;
+  max-width: 402px;
+  padding: 11px;
+  background-color: $grey5;
+  border-radius: 0 8px 8px 8px;
+  &__text {
+    font-size: 12px;
+    color: $textBlack;
+  }
+  &__date {
+    font-size: 9px;
+    color: $grey3;
+  }
+}

@@ -1,0 +1,29 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-col-vertical-center {
+  @include flex-col();
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin left-area {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: $grey;
+  border-right: 1px solid $grey2;
+}
+
+@mixin none-outline {
+  outline: none;
+}

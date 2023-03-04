@@ -1,0 +1,12 @@
+{{#if edit}}
+    <div class="avatar avatar__image" style="{{style}}"></div>
+  {{else}}
+    <div class="avatar" style="{{style}}">
+  
+    <div class="avatar__mask">Поменять<br>аватар</div>
+    <input id="avatar" name="avatar" type="file" class="avatar__input">
+        {{> @partial-block }}
+    </input>
+  
+</div>
+  {{/if}}

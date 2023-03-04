@@ -1,0 +1,17 @@
+<form class="full-width editForm">
+  <div style="margin: 0 0 60px 0;">
+    {{#if forPassword}}
+    {{> editFormItem/editFormItem key="Старый пароль" id="oldPassword" name="oldPassword" type="password" value="•••••••••" }}
+    {{> editFormItem/editFormItem key="Новый пароль" id="newPassword" name="newPassword" type="password" value="•••••••••" }}
+    {{> editFormItem/editFormItem key="Повторите новый пароль" id="newPassword" name="newPassword" type="password" value="••••••••••••" }}
+  {{else}}
+        {{> editFormItem/editFormItem key="Почта" id="email" name="email" type="email" value="pochta@yandex.ru" }}
+        {{> editFormItem/editFormItem key="Логин" id="login" name="login" type="text" value="ivanivanov" }}
+        {{> editFormItem/editFormItem key="Имя" id="first_name" name="first_name" type="text" value="Иван" }}
+        {{> editFormItem/editFormItem key="Фамилия" id="second_name" name="second_name" type="text" value="Иванов" }}
+        {{> editFormItem/editFormItem key="Имя в чате" id="display_name" name="display_name" type="text" value="Иван" }}
+        {{> editFormItem/editFormItem key="Телефон" id="phone" name="phone" type="tel" value="+7 (909) 967 30 30" }}
+  {{/if}}
+  </div>
+    {{> button/button type="submit" text="Сохранить" class="full-width button" style="max-width:280px" }}
+</form>
