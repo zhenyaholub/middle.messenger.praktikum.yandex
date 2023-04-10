@@ -1,9 +1,9 @@
 <form class="full-width editForm">
   <div style="margin: 0 0 60px 0;">
     {{#if forPassword}}
-    {{> editFormItem/editFormItem key="Старый пароль" id="old_password" name="old_password" type="password" value="•••••••••" }}
-    {{> editFormItem/editFormItem key="Новый пароль" id="password" name="password" type="password" value="•••••••••" }}
-    {{> editFormItem/editFormItem key="Повторите новый пароль" id="password" name="password" type="password" value="••••••••••••" }}
+    {{> editFormItem/editFormItem key="Старый пароль" id="oldPassword" name="oldPassword" type="password" value="•••••••••" }}
+    {{> editFormItem/editFormItem key="Новый пароль" id="newPassword" name="newPassword" type="password" value="•••••••••" }}
+    {{> editFormItem/editFormItem key="Повторите новый пароль" id="newPassword" name="newPassword" type="password" value="••••••••••••" }}
   {{else}}
         {{> editFormItem/editFormItem key="Почта" id="email" name="email" type="email" value="pochta@yandex.ru" }}
         {{> editFormItem/editFormItem key="Логин" id="login" name="login" type="text" value="ivanivanov" }}
