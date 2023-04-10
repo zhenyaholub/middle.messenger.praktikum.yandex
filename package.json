@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Pure JavaScript Web-messenger",
   "scripts": {
-    "start": "parcel src/pages/*.hbs -p 3000 --open --no-cache",
-    "build": "parcel build src/pages/*.hbs --no-cache --public-url ./"
+    "start": "parcel src/index.html -p 3000 --open --no-cache",
+    "build": "parcel build src/index.html --no-cache --public-url ./"
   },
   "repository": {
     "type": "git",
@@ -21,12 +21,17 @@
   },
   "homepage": "https://github.com/zhenyaholub/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
+    "@parcel/packager-xml": "^2.8.3",
     "@parcel/transformer-sass": "^2.8.3",
-    "parcel": "^2.8.3"
+    "@parcel/transformer-xml": "^2.8.3",
+    "@parcel/validator-typescript": "^2.8.3",
+    "parcel": "^2.8.3",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@anikin/parcel-transformer-handlebars": "^1.0.9",
     "express": "^4.18.2",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "nanoid": "^4.0.2"
   }
 }
