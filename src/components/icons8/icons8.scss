@@ -1,0 +1,8 @@
+.icons8 {
+  align-self: flex-end;
+  &__icon,
+  &__company {
+    color: $blue;
+    text-decoration: underline;
+  }
+}
