@@ -44,16 +44,12 @@
 @import "../components/icons8/icons8.scss";
 @import "../components/form/form.scss";
 @import "../components/title/title.scss";
+@import "../components/link/link.scss";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body,
-html {
-  height: 100%;
 }
 
 html {
@@ -102,7 +98,7 @@ img {
   height: 100%;
 }
 
-.link {
+.text_decoration_none {
   text-decoration: none;
 }
 
@@ -121,4 +117,13 @@ img {
 
 .rotate-180deg {
   transform: rotate(180deg);
+}
+
+.relative {
+  position: relative;
+}
+
+.form_wrapper {
+  width: 90%;
+  max-width: 340px;
 }

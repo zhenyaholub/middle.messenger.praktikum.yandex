@@ -10,10 +10,6 @@ export class Form extends Block {
     super(props);
   }
 
-  init() {
-    this.children.fields = [new Input({})];
-  }
-
   render() {
     return this.compile(template, this.props);
   }
