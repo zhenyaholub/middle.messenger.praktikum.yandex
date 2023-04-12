@@ -39,8 +39,8 @@ export class Block<P extends Record<string, any> = any> {
     const children: Record<string, Block> = {};
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
-      if (value instanceof Block) {
-        children[key as string] = value;
+      if (this._shouldGoToChildren(value)) {
+        children[key as string] = value as Block;
       } else {
         props[key] = value;
       }
@@ -133,7 +133,19 @@ export class Block<P extends Record<string, any> = any> {
 
     Object.entries(this.children).forEach(([name, component]) => {
       if (Array.isArray(component)) {
-      } else contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
+        contextAndStubs[name] = document.createElement("div");
+        contextAndStubs[name].setAttribute("wrapper", "");
+
+        component.forEach((component) => {
+          const element = document.createElement("div");
+          element.setAttribute("data-id", component.id);
+          contextAndStubs[name].append(element);
+        });
+
+        contextAndStubs[name] = contextAndStubs[name].outerHTML;
+      } else {
+        contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
+      }
     });
 
     const html = template(contextAndStubs);
@@ -142,16 +154,27 @@ export class Block<P extends Record<string, any> = any> {
 
     temp.innerHTML = html;
 
+    const wrappers = temp.content.querySelectorAll("[wrapper]");
+
+    if (wrappers.length) {
+      wrappers.forEach((wrapper) => wrapper.replaceWith(...wrapper.childNodes));
+    }
+
     Object.entries(this.children).forEach(([_, component]) => {
-      const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
+      if (Array.isArray(component)) {
+        component.forEach((component) => {
+          const stub = temp.content.querySelector(
+            `[data-id="${component.id}"]`
+          );
 
-      if (!stub) {
-        return;
+          component.getContent()?.append(...Array.from(stub!.childNodes));
+          stub!.replaceWith(component.getContent()!);
+        });
+      } else {
+        const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
+        component.getContent()?.append(...Array.from(stub!.childNodes));
+        stub!.replaceWith(component.getContent()!);
       }
-
-      component.getContent()?.append(...Array.from(stub.childNodes));
-
-      stub.replaceWith(component.getContent()!);
     });
 
     return temp.content;
@@ -165,7 +188,7 @@ export class Block<P extends Record<string, any> = any> {
     return this.element;
   }
 
-  _makePropsProxy(props: P) {
+  private _makePropsProxy(props: P) {
     return new Proxy(props, {
       get: (target, prop: string) => {
         const value = target[prop];
@@ -183,5 +206,19 @@ export class Block<P extends Record<string, any> = any> {
         throw new Error("Нет доступа");
       },
     });
+  }
+
+  private _shouldGoToChildren(propValue: any) {
+    let result;
+
+    if (propValue instanceof Block) {
+      result = true;
+    }
+
+    if (Array.isArray(propValue)) {
+      result = propValue.every((value) => value instanceof Block);
+    }
+
+    return result;
   }
 }

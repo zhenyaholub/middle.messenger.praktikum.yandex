@@ -1,9 +1,11 @@
+import { TitlePropsType } from "./title.types";
+
 import { Block } from "../../utils/Block";
 
 import template from "./title.template.hbs";
 
 export class Title extends Block {
-  constructor(props: any) {
+  constructor(props: TitlePropsType) {
     super(props);
   }
 
