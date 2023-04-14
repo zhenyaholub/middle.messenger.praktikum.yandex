@@ -1,8 +1,12 @@
 import { nanoid } from "nanoid";
 
-import { EventBus } from "./EventBus";
+import { EventBus } from "./eventBus";
 
-export class Block<P extends Record<string, any> = any> {
+export class Block<
+  P extends Record<string, any> & {
+    events: Record<string, () => void>;
+  } = any
+> {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",

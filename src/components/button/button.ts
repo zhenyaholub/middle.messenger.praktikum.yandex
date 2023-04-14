@@ -1,11 +1,12 @@
+import { BlockPropsType } from "../../types/block";
 import { ButtonPropsType } from "./button.types";
 
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 
 import template from "./button.template.hbs";
 
 export class Button extends Block {
-  constructor(props: ButtonPropsType) {
+  constructor(props: BlockPropsType<ButtonPropsType>) {
     super(props);
   }
 

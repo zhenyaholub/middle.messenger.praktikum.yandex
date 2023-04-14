@@ -1,6 +1,6 @@
 import { LabelPropsType } from "./label.types";
 
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 
 import template from "./label.template.hbs";
 

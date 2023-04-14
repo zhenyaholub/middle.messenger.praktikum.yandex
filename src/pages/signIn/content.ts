@@ -9,6 +9,8 @@ import { SignIn } from "./signIn";
 import { Input } from "../../components/input/input";
 
 import { LOGIN, PASSWORD } from "../../utils/fieldNames";
+import { push } from "../../utils/helpers";
+import { SIGN_UP } from "../../utils/urls";
 
 const title = new Title({ text: "Вход" });
 
@@ -37,7 +39,10 @@ const password = new Field({
 
 const fields = [login, password];
 const topButton = new Button({ type: "submit", text: "Авторизоваться" });
-const bottomButton = new Link({ text: "Нет аккаунта?" });
+const bottomButton = new Link({
+  text: "Нет аккаунта?",
+  events: { click: push.bind(this, SIGN_UP) },
+});
 
 const form = new Form({ title, fields, topButton, bottomButton });
 const icons8 = new Icons8({});
