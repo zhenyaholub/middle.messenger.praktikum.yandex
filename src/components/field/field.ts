@@ -1,6 +1,6 @@
 import { FieldPropsType } from "./field.types";
 
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 
 import template from "./field.template.hbs";
 

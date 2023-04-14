@@ -1,5 +1,5 @@
 import { SignPropsType } from "../../types/sign";
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 
 import template from "./signIn.template.hbs";
 

@@ -1,6 +1,6 @@
 import { TitlePropsType } from "./title.types";
 
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 
 import template from "./title.template.hbs";
 

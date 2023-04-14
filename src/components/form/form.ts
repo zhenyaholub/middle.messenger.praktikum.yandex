@@ -1,12 +1,12 @@
+import { BlockPropsType } from "../../types/block";
 import { FormPropsType } from "./form.types";
 
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 
 import template from "./form.template.hbs";
-import { Input } from "../input/input";
 
 export class Form extends Block {
-  constructor(props: FormPropsType) {
+  constructor(props: BlockPropsType<FormPropsType>) {
     super(props);
   }
 

@@ -1,11 +1,21 @@
-import { Block } from "./Block";
+import { ROUTES } from "./routes";
 
-export function render(query: string, block: Block) {
-  const root = document.querySelector(query);
+export function renderPage() {
+  const root = document.querySelector("#app");
 
-  root!.appendChild(block.getContent()!);
+  root!.innerHTML = "";
 
-  block.dispatchComponentDidMount();
+  const page = ROUTES[location.pathname as keyof typeof ROUTES];
+
+  root!.appendChild(page.getContent()!);
+
+  page.dispatchComponentDidMount();
 
   return root;
+}
+
+export function push(url: string) {
+  history.pushState({}, "", url);
+
+  window.dispatchEvent(new Event("popstate"));
 }

@@ -1,5 +1,4 @@
-import { signIn } from "./pages/signIn/content";
+import { renderPage } from "./utils/helpers";
 
-import { render } from "./utils/helpers";
-
-render("#app", signIn);
+window.addEventListener("load", renderPage);
+window.addEventListener("popstate", renderPage);

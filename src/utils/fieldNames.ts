@@ -1,5 +1,6 @@
 export const LOGIN = "login";
 export const PASSWORD = "password";
+export const PASSWORD_AGAIN = "password_again";
 export const FIRST_NAME = "first_name";
 export const SECOND_NAME = "second_name";
 export const EMAIL = "email";
