@@ -1,11 +1,13 @@
 import { error404 } from "../pages/404/content";
 import { serverError } from "../pages/500/content";
 import { edit } from "../pages/edit/content";
+import { editPassword } from "../pages/editPassword/content";
 import { profile } from "../pages/profile/content";
 import { signIn } from "../pages/signIn/content";
 import { signUp } from "../pages/signUp/content";
 
 import {
+  EDIT_PASSWORD,
   EDIT_PROFILE,
   NOT_FOUND,
   PROFILE,
@@ -21,4 +23,5 @@ export const ROUTES = {
   [SERVER_ERROR]: serverError,
   [PROFILE]: profile,
   [EDIT_PROFILE]: edit,
+  [EDIT_PASSWORD]: editPassword,
 };

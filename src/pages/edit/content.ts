@@ -1,6 +1,6 @@
 import { Back } from "../../components/back/back";
 import { RoundedButton } from "../../components/roundedButton/roundedButton";
-import { Edit } from "./edit";
+import { Edit } from "../../components/edit/edit";
 import { Avatar } from "../../components/avatar/avatar";
 import { EditForm } from "../../components/editForm/editForm";
 import { Button } from "../../components/button/button";
@@ -18,7 +18,14 @@ import {
   PHONE_LABEL,
   SECOND_NAME_LABEL,
 } from "../../utils/fieldLabels";
-import { EMAIL, FIRST_NAME, LOGIN } from "../../utils/fieldNames";
+import {
+  DISPLAY_NAME,
+  EMAIL,
+  FIRST_NAME,
+  LOGIN,
+  PHONE,
+  SECOND_NAME,
+} from "../../utils/fieldNames";
 import { push } from "../../utils/helpers";
 import { CHATS } from "../../utils/urls";
 
@@ -59,8 +66,8 @@ const firstName = new EditFormItem({
   input: firstNameInput,
 });
 const secondNameInput = new EditFormInput({
-  name: SECOND_NAME_LABEL,
-  id: SECOND_NAME_LABEL,
+  name: SECOND_NAME,
+  id: SECOND_NAME,
   type: "text",
   value: "Иванов",
 });
@@ -69,8 +76,8 @@ const secondName = new EditFormItem({
   input: secondNameInput,
 });
 const displayNameInput = new EditFormInput({
-  name: DISPLAY_NAME_LABEL,
-  id: DISPLAY_NAME_LABEL,
+  name: DISPLAY_NAME,
+  id: DISPLAY_NAME,
   type: "text",
   value: "Иван",
 });
@@ -79,8 +86,8 @@ const displayName = new EditFormItem({
   input: displayNameInput,
 });
 const phoneInput = new EditFormInput({
-  name: PHONE_LABEL,
-  id: PHONE_LABEL,
+  name: PHONE,
+  id: PHONE,
   type: "text",
   value: "+7 (909) 967 30 30",
 });
