@@ -9,3 +9,4 @@ export const DISPLAY_NAME_LABEL = "Имя в чате";
 export const AVATAR_LABEL = "Аватар";
 export const OLD_PASSWORD_LABEL = "Старый пароль";
 export const NEW_PASSWORD_LABEL = "Новый пароль";
+export const NEW_PASSWORD_LABEL_AGAIN = "Повторите новый пароль";
