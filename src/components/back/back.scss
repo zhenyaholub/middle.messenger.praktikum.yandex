@@ -1,8 +1,15 @@
 .back {
-  width: 28px;
-  height: 28px;
+  display: inline-block;
+  margin: 0 0 20px 0;
+  background: transparent;
   border: none;
-  border-radius: 50%;
-  background-color: $blue;
-  cursor: pointer;
+}
+
+@media (min-width: $md) {
+  .back {
+    @include flex-col-vertical-center();
+    @include left-area();
+    padding: 0 18px;
+    cursor: pointer;
+  }
 }

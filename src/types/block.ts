@@ -1,2 +1,3 @@
-type Events = { events?: Record<string, () => void> };
-export type BlockPropsType<P> = P & Events;
+type EventsType = { events?: Record<string, () => void> };
+type StyleType = { style?: string };
+export type BlockPropsType<P> = P & EventsType & StyleType;

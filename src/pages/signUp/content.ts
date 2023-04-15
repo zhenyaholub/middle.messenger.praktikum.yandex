@@ -17,7 +17,7 @@ import {
   SECOND_NAME,
 } from "../../utils/fieldNames";
 import { push } from "../../utils/helpers";
-import { SIGN_IN, SIGN_UP } from "../../utils/urls";
+import { SIGN_IN } from "../../utils/urls";
 import { FIRST_NAME } from "../../utils/fieldNames";
 
 const title = new Title({ text: "Регистрация" });
