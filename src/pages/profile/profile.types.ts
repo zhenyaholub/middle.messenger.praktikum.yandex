@@ -2,11 +2,11 @@ import { ProfileGeneralPropsType } from "../../types/profile";
 
 import { Action } from "../../components/action/action";
 import { Avatar } from "../../components/avatar/avatar";
-import { Back } from "../../components/back/back";
+import { ArrowButton } from "../../components/arrowButton/arrowButton";
 import { ProfileItem } from "../../components/profileItem/profileItem";
 
 export type ProfilePropsType = {
-  back: Back;
+  back: ArrowButton;
   avatar: Avatar;
   name: string;
   items: ProfileItem[];

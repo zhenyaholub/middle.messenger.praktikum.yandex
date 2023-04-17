@@ -1,10 +1,13 @@
 import { BlockPropsType } from "../../types/block";
 import { Block } from "../../utils/block";
+import { InputPropsType } from "./input.types";
 
 import template from "./input.template.hbs";
 
 export class Input extends Block {
-  constructor(props: BlockPropsType<Partial<HTMLInputElement>>) {
+  constructor(
+    props: InputPropsType & BlockPropsType<Partial<HTMLInputElement>>
+  ) {
     super(props);
   }
 

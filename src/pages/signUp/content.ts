@@ -29,6 +29,7 @@ const emailInput = new Input({
   type: "email",
   placeholder: "vitalik@yandex.ru",
   value: "",
+  class: "input",
 });
 const email = new Field({ label: emailLabel, input: emailInput });
 
@@ -39,6 +40,7 @@ const loginInput = new Input({
   type: "text",
   placeholder: "Vitalik",
   value: "",
+  class: "input",
 });
 const login = new Field({ label: loginLabel, input: loginInput });
 
@@ -49,6 +51,7 @@ const firstNameInput = new Input({
   type: "text",
   placeholder: "Виталий",
   value: "",
+  class: "input",
 });
 const firstName = new Field({ label: firstNameLabel, input: firstNameInput });
 
@@ -59,6 +62,7 @@ const secondNameInput = new Input({
   type: "text",
   placeholder: "Виноградов",
   value: "",
+  class: "input",
 });
 const secondName = new Field({
   label: secondNameLabel,
@@ -72,6 +76,7 @@ const phoneInput = new Input({
   type: "text",
   placeholder: "+7 (909) 967 30 30",
   value: "",
+  class: "input",
 });
 const phone = new Field({
   label: phoneLabel,
@@ -84,6 +89,7 @@ const passwordInput = new Input({
   id: PASSWORD,
   type: "password",
   placeholder: "...........",
+  class: "input",
 });
 const password = new Field({
   label: passwordLabel,
@@ -99,6 +105,7 @@ const passwordAgainInput = new Input({
   id: PASSWORD_AGAIN,
   type: "password",
   placeholder: "...........",
+  class: "input",
 });
 const passwordAgain = new Field({
   label: passwordAgainLabel,

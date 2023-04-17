@@ -1,4 +1,4 @@
-import { Back } from "../../components/back/back";
+import { ArrowButton } from "../../components/arrowButton/arrowButton";
 import { RoundedButton } from "../../components/roundedButton/roundedButton";
 import { Profile } from "./profile";
 import { ProfileItem } from "../../components/profileItem/profileItem";
@@ -15,7 +15,7 @@ import {
   SECOND_NAME_LABEL,
 } from "../../utils/fieldLabels";
 import { push } from "../../utils/helpers";
-import { EDIT_PASSWORD, EDIT_PROFILE, SIGN_IN } from "../../utils/urls";
+import { CHATS, EDIT_PASSWORD, EDIT_PROFILE, SIGN_IN } from "../../utils/urls";
 
 import arrow from "../../../static/icons/arrow.svg";
 import avatarIcon from "../../../static/icons/avatar.svg";
@@ -25,7 +25,10 @@ const button = new RoundedButton({
   arrowClasses: "",
   image: arrow,
 });
-const back = new Back({ button });
+const back = new ArrowButton({
+  button,
+  events: { click: push.bind(this, CHATS) },
+});
 const avatar = new Avatar({
   image: avatarIcon,
   edit: true,
