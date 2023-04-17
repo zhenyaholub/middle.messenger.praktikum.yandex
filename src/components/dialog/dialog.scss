@@ -9,5 +9,8 @@
     max-height: calc(100vh - 113.8px);
     flex-grow: 1;
     overflow-y: auto;
+    :last-child {
+      margin: 0;
+    }
   }
 }

@@ -9,7 +9,9 @@
   padding: 0 10px;
   border-right: 1px solid $grey2;
   overflow-y: auto;
+  background-color: $grey;
   &__top {
+    border-bottom: 1px solid $grey2;
     padding: 10px 0 0 0;
     position: sticky;
     top: 0;
@@ -17,7 +19,11 @@
     display: flex;
     flex-direction: column;
     align-items: end;
-    background-color: $grey;
+  }
+  &__bottom {
+    :last-child {
+      border-bottom: none;
+    }
   }
 }
 

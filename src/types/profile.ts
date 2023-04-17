@@ -1,4 +1,4 @@
 import { Avatar } from "../components/avatar/avatar";
-import { Back } from "../components/back/back";
+import { ArrowButton } from "../components/arrowButton/arrowButton";
 
-export type ProfileGeneralPropsType = { back: Back; avatar: Avatar };
+export type ProfileGeneralPropsType = { back: ArrowButton; avatar: Avatar };

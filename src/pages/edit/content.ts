@@ -1,4 +1,4 @@
-import { Back } from "../../components/back/back";
+import { ArrowButton } from "../../components/arrowButton/arrowButton";
 import { RoundedButton } from "../../components/roundedButton/roundedButton";
 import { Edit } from "../../components/edit/edit";
 import { Avatar } from "../../components/avatar/avatar";
@@ -34,7 +34,10 @@ const button = new RoundedButton({
   arrowClasses: "",
   image: arrow,
 });
-const back = new Back({ button, events: { click: push.bind(this, CHATS) } });
+const back = new ArrowButton({
+  button,
+  events: { click: push.bind(this, CHATS) },
+});
 const avatar = new Avatar({
   image: avatarIcon,
   edit: true,

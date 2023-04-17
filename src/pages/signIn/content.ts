@@ -21,6 +21,7 @@ const loginInput = new Input({
   type: "text",
   placeholder: "Vitalik",
   value: "",
+  class: "input",
 });
 const login = new Field({ label: loginLabel, input: loginInput });
 
@@ -30,6 +31,7 @@ const passwordInput = new Input({
   id: PASSWORD,
   type: "password",
   placeholder: "...........",
+  class: "input",
 });
 const password = new Field({
   label: passwordLabel,

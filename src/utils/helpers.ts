@@ -60,9 +60,6 @@ export function setBodyStyles() {
     case EDIT_PASSWORD:
       body.classList.add("profile_body", "padding2");
       break;
-    case CHATS:
-      body.classList.add("flex", "overflow-x-hidden");
-      break;
     default:
       break;
   }
