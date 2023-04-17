@@ -11,3 +11,4 @@ export const AVATAR = "avatar";
 export const OLD_PASSWORD = "oldPassword";
 export const NEW_PASSWORD = "newPassword";
 export const NEW_PASSWORD_AGAIN = "newPassword_again";
+export const SEARCH = "search";

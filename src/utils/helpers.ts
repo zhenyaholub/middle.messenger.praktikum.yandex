@@ -1,7 +1,6 @@
 import { ROUTES } from "./routes";
 import { SERVER_ERROR } from "./urls";
 import { EDIT_PROFILE } from "./urls";
-import { CHATS } from "./urls";
 import { EDIT_PASSWORD } from "./urls";
 import { PROFILE } from "./urls";
 import { NOT_FOUND } from "./urls";

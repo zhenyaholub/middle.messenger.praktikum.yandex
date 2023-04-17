@@ -11,6 +11,7 @@ import { Input } from "../../components/input/input";
 import { LOGIN, PASSWORD } from "../../utils/fieldNames";
 import { push } from "../../utils/helpers";
 import { SIGN_UP } from "../../utils/urls";
+import { handleSubmit, validate } from "./handlers";
 
 const title = new Title({ text: "Вход" });
 
@@ -22,7 +23,9 @@ const loginInput = new Input({
   placeholder: "Vitalik",
   value: "",
   class: "input",
+  events: { blur: validate, focus: validate },
 });
+
 const login = new Field({ label: loginLabel, input: loginInput });
 
 const passwordLabel = new Label({ for: PASSWORD, text: "Пароль" });
@@ -32,6 +35,7 @@ const passwordInput = new Input({
   type: "password",
   placeholder: "...........",
   class: "input",
+  events: { blur: validate, focus: validate },
 });
 const password = new Field({
   label: passwordLabel,
@@ -46,7 +50,14 @@ const bottomButton = new Link({
   events: { click: push.bind(this, SIGN_UP) },
 });
 
-const form = new Form({ title, fields, topButton, bottomButton });
+const form = new Form({
+  title,
+  fields,
+  topButton,
+  bottomButton,
+  events: { submit: handleSubmit },
+});
+
 const icons8 = new Icons8({});
 
 export const signIn = new SignIn({ form, icons8 });
