@@ -10,8 +10,10 @@ import { MessageBlock } from "../../components/messageBlock/messageBlock";
 import { ChatMessage } from "../../components/chatMessage/chatMessage";
 import { MessageActionsArea } from "../../components/messageActionsArea/messageActionsArea";
 import { RoundedButton } from "../../components/roundedButton/roundedButton";
+import { Actions } from "../../components/actions/actions";
+import { Empty } from "../../components/empty/empty";
 
-import { MESSAGE } from "../../utils/fieldNames";
+import { MESSAGE, SEARCH } from "../../utils/fieldNames";
 import { push } from "../../utils/helpers";
 import { PROFILE } from "../../utils/urls";
 
@@ -19,17 +21,16 @@ import smallArrow from "../../../static/icons/small_arrow.svg";
 import searchIcon from "../../../static/icons/search.svg";
 import attach from "../../../static/icons/attach.svg";
 import arrow from "../../../static/icons/arrow.svg";
-import { Actions } from "../../components/actions/actions";
-import { Empty } from "../../components/empty/empty";
 
 const profileLink = new ProfileLink({
   image: smallArrow,
   events: { click: push.bind(this, PROFILE) },
 });
 const input = new Input({
-  name: MESSAGE,
+  name: SEARCH,
+  id: SEARCH,
   type: "text",
-  placeholder: "Сообщение",
+  placeholder: "Поиск",
   class: "search__input",
 });
 const search = new Search({ image: searchIcon, input });
@@ -78,6 +79,7 @@ const items = [messageBlock];
 
 const messageInput = new Input({
   name: MESSAGE,
+  id: MESSAGE,
   type: "text",
   placeholder: "Сообщение",
   class: "message_actions_area__input",
@@ -99,5 +101,5 @@ export const chats = new Chats({
   profileLink,
   search,
   chats: chatsList,
-  right: empty,
+  right: dialog,
 });

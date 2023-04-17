@@ -8,6 +8,8 @@ import { Title } from "../../components/title/title";
 import { SignUp } from "./signUp";
 import { Input } from "../../components/input/input";
 
+import { handleSubmit } from "../signIn/handlers";
+
 import {
   EMAIL,
   LOGIN,
@@ -128,7 +130,13 @@ const bottomButton = new Link({
   events: { click: push.bind(this, SIGN_IN) },
 });
 
-const form = new Form({ title, fields, topButton, bottomButton });
+const form = new Form({
+  title,
+  fields,
+  topButton,
+  bottomButton,
+  events: { submit: handleSubmit },
+});
 const icons8 = new Icons8({});
 
 export const signUp = new SignUp({ form, icons8 });

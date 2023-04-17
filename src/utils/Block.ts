@@ -225,4 +225,12 @@ export class Block<
 
     return result;
   }
+
+  hide() {
+    this.getContent()!.style.display = "none";
+  }
+
+  show() {
+    this.getContent()!.style.display = "inherit";
+  }
 }
