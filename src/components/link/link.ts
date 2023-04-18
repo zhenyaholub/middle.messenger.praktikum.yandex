@@ -1,7 +1,7 @@
 import { BlockPropsType } from "../../types/block";
 import { LinkPropsType } from "./link.types";
 
-import { Block } from "@utils/block";
+import { Block } from "../../utils/block";
 
 import template from "./link.hbs";
 
