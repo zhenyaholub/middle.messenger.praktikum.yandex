@@ -1,6 +1,6 @@
 import { ErrorPropsType } from "./error.types";
 
-import { Block } from "../../utils/block";
+import { Block } from "@utils/block";
 
 import template from "./error.template.hbs";
 
