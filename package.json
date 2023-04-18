@@ -4,7 +4,7 @@
   "description": "Pure JavaScript Web-messenger",
   "scripts": {
     "start": "parcel src/index.html -p 3000 --open --no-cache",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html --no-cache --public-url ./"
   },
   "repository": {
     "type": "git",
