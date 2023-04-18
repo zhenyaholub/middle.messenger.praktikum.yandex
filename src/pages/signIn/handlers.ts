@@ -1,4 +1,3 @@
-import { mediator } from "../../mediator/mediator";
 import { REGULAR_EXPRESSIONS } from "../../utils/regularExpressions";
 
 export const handleSubmit = (e: Event) => {
@@ -17,10 +16,14 @@ export const handleSubmit = (e: Event) => {
   console.log(data);
 };
 
-export const validate = ({ target }: Event) => {
-  const { name, value } = target as HTMLInputElement;
-  mediator.emit("error");
-  return REGULAR_EXPRESSIONS[name as keyof typeof REGULAR_EXPRESSIONS].test(
-    value
-  );
+export const validate = (event: Event) => {
+  if (event) {
+    const { target } = event;
+
+    const { name, value } = target as HTMLInputElement;
+
+    return !REGULAR_EXPRESSIONS[name as keyof typeof REGULAR_EXPRESSIONS].test(
+      value
+    );
+  }
 };

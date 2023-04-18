@@ -63,3 +63,13 @@ export function setBodyStyles() {
       break;
   }
 }
+
+export function queryStringify(data: object) {
+  let query = "?";
+  let entries = Object.entries(data);
+  entries.forEach(([key, value], index, array) => {
+    const isLast = index === array.length - 1;
+    query += `${key}=${value}${!isLast ? "&" : ""}`;
+  });
+  return query;
+}

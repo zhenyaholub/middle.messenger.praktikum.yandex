@@ -26,7 +26,7 @@ const loginInput = new Input({
   events: { blur: validate, focus: validate },
 });
 
-const login = new Field({ label: loginLabel, input: loginInput });
+export const login = new Field({ label: loginLabel, input: loginInput });
 
 const passwordLabel = new Label({ for: PASSWORD, text: "Пароль" });
 const passwordInput = new Input({
