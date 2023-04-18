@@ -8,7 +8,7 @@ import { Title } from "../../components/title/title";
 import { SignUp } from "./signUp";
 import { Input } from "../../components/input/input";
 
-import { handleSubmit } from "../signIn/handlers";
+import { handleSubmit, validate } from "../signIn/handlers";
 
 import {
   EMAIL,
@@ -32,6 +32,7 @@ const emailInput = new Input({
   placeholder: "vitalik@yandex.ru",
   value: "",
   class: "input",
+  events: { blur: validate, focus: validate },
 });
 const email = new Field({ label: emailLabel, input: emailInput });
 
@@ -43,6 +44,7 @@ const loginInput = new Input({
   placeholder: "Vitalik",
   value: "",
   class: "input",
+  events: { blur: validate, focus: validate },
 });
 const login = new Field({ label: loginLabel, input: loginInput });
 
@@ -54,6 +56,7 @@ const firstNameInput = new Input({
   placeholder: "Виталий",
   value: "",
   class: "input",
+  events: { blur: validate, focus: validate },
 });
 const firstName = new Field({ label: firstNameLabel, input: firstNameInput });
 
@@ -65,6 +68,7 @@ const secondNameInput = new Input({
   placeholder: "Виноградов",
   value: "",
   class: "input",
+  events: { blur: validate, focus: validate },
 });
 const secondName = new Field({
   label: secondNameLabel,
@@ -79,6 +83,7 @@ const phoneInput = new Input({
   placeholder: "+7 (909) 967 30 30",
   value: "",
   class: "input",
+  events: { blur: validate, focus: validate },
 });
 const phone = new Field({
   label: phoneLabel,
@@ -92,6 +97,7 @@ const passwordInput = new Input({
   type: "password",
   placeholder: "...........",
   class: "input",
+  events: { blur: validate, focus: validate },
 });
 const password = new Field({
   label: passwordLabel,
@@ -108,6 +114,7 @@ const passwordAgainInput = new Input({
   type: "password",
   placeholder: "...........",
   class: "input",
+  events: { blur: validate, focus: validate },
 });
 const passwordAgain = new Field({
   label: passwordAgainLabel,
