@@ -15,6 +15,7 @@ import { Actions } from '../../components/actions/actions'
 import { MESSAGE, SEARCH } from '../../utils/fieldNames'
 import { push } from '../../utils/helpers'
 import { PROFILE } from '../../utils/urls'
+import { validationMediator } from '../../utils/mediator'
 
 import smallArrow from '../../../static/icons/small_arrow.svg'
 import searchIcon from '../../../static/icons/search.svg'
@@ -30,7 +31,8 @@ const input = new Input({
   id: SEARCH,
   type: 'text',
   placeholder: 'Поиск',
-  class: 'search__input'
+  class: 'search__input',
+  mediator: validationMediator
 })
 const search = new Search({ image: searchIcon, input })
 
@@ -81,7 +83,8 @@ const messageInput = new Input({
   id: MESSAGE,
   type: 'text',
   placeholder: 'Сообщение',
-  class: 'messageActionsArea__input'
+  class: 'messageActionsArea__input',
+  mediator: validationMediator
 })
 const submit = new RoundedButton({
   type: 'submit',

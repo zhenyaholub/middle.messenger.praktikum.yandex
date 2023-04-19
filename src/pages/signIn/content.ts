@@ -11,7 +11,8 @@ import { Input } from '../../components/input/input'
 import { LOGIN, PASSWORD } from '../../utils/fieldNames'
 import { push } from '../../utils/helpers'
 import { SIGN_UP } from '../../utils/urls'
-import { handleSubmit, validate } from './handlers'
+import { handleSubmit } from './handlers'
+import { validationMediator } from '../../utils/mediator'
 
 const title = new Title({ text: 'Вход' })
 
@@ -23,9 +24,8 @@ const loginInput = new Input({
   placeholder: 'Vitalik',
   value: '',
   class: 'input',
-  events: { blur: validate, focus: validate }
+  mediator: validationMediator
 })
-
 export const login = new Field({ label: loginLabel, input: loginInput })
 
 const passwordLabel = new Label({ for: PASSWORD, text: 'Пароль' })
@@ -35,9 +35,9 @@ const passwordInput = new Input({
   type: 'password',
   placeholder: '...........',
   class: 'input',
-  events: { blur: validate, focus: validate }
+  mediator: validationMediator
 })
-const password = new Field({
+export const password = new Field({
   label: passwordLabel,
   input: passwordInput,
   style: 'margin:0 0 159px 0'

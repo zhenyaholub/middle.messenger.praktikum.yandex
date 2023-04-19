@@ -8,7 +8,7 @@ import { Title } from '../../components/title/title'
 import { SignUp } from './signUp'
 import { Input } from '../../components/input/input'
 
-import { handleSubmit, validate } from '../signIn/handlers'
+import { handleSubmit } from '../signIn/handlers'
 
 import {
   EMAIL,
@@ -16,11 +16,12 @@ import {
   PASSWORD,
   PASSWORD_AGAIN,
   PHONE,
-  SECOND_NAME
-  , FIRST_NAME
+  SECOND_NAME,
+  FIRST_NAME
 } from '../../utils/fieldNames'
 import { push } from '../../utils/helpers'
 import { SIGN_IN } from '../../utils/urls'
+import { validationMediator } from '../../utils/mediator'
 
 const title = new Title({ text: 'Регистрация' })
 
@@ -32,7 +33,7 @@ const emailInput = new Input({
   placeholder: 'vitalik@yandex.ru',
   value: '',
   class: 'input',
-  events: { blur: validate, focus: validate }
+  mediator: validationMediator
 })
 const email = new Field({ label: emailLabel, input: emailInput })
 
@@ -44,7 +45,7 @@ const loginInput = new Input({
   placeholder: 'Vitalik',
   value: '',
   class: 'input',
-  events: { blur: validate, focus: validate }
+  mediator: validationMediator
 })
 const login = new Field({ label: loginLabel, input: loginInput })
 
@@ -56,7 +57,7 @@ const firstNameInput = new Input({
   placeholder: 'Виталий',
   value: '',
   class: 'input',
-  events: { blur: validate, focus: validate }
+  mediator: validationMediator
 })
 const firstName = new Field({ label: firstNameLabel, input: firstNameInput })
 
@@ -68,7 +69,7 @@ const secondNameInput = new Input({
   placeholder: 'Виноградов',
   value: '',
   class: 'input',
-  events: { blur: validate, focus: validate }
+  mediator: validationMediator
 })
 const secondName = new Field({
   label: secondNameLabel,
@@ -83,7 +84,7 @@ const phoneInput = new Input({
   placeholder: '+7 (909) 967 30 30',
   value: '',
   class: 'input',
-  events: { blur: validate, focus: validate }
+  mediator: validationMediator
 })
 const phone = new Field({
   label: phoneLabel,
@@ -97,7 +98,7 @@ const passwordInput = new Input({
   type: 'password',
   placeholder: '...........',
   class: 'input',
-  events: { blur: validate, focus: validate }
+  mediator: validationMediator
 })
 const password = new Field({
   label: passwordLabel,
@@ -114,7 +115,7 @@ const passwordAgainInput = new Input({
   type: 'password',
   placeholder: '...........',
   class: 'input',
-  events: { blur: validate, focus: validate }
+  mediator: validationMediator
 })
 const passwordAgain = new Field({
   label: passwordAgainLabel,
