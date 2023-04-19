@@ -1,6 +1,8 @@
 .empty {
-  @include flex-center();
+  @include flex-center;
+
   flex-grow: 1;
+
   &__message {
     font-size: 12px;
     color: $grey3;

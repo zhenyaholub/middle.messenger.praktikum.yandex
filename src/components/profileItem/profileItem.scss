@@ -1,9 +1,10 @@
-.profile_item {
+.profileItem {
   padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $grey2;
+
   &__input {
     font-size: 13px;
     color: $grey3;
@@ -11,10 +12,12 @@
     outline: none;
     text-align: end;
   }
+
   &__key {
     font-size: 13px;
     color: $textBlack;
   }
+
   &__value {
     color: $grey3;
   }

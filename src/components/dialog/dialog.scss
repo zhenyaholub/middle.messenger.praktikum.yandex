@@ -4,11 +4,13 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+
   &__area {
     padding: 20px 20px 20px 0;
     max-height: calc(100vh - 113.8px);
     flex-grow: 1;
     overflow-y: auto;
+
     :last-child {
       margin: 0;
     }

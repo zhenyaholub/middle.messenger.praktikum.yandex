@@ -33,31 +33,31 @@ export function setBodyStyles() {
 
   switch (location.pathname) {
     case SIGN_IN:
-      body.classList.add("flex-center", "padding");
+      body.classList.add("flexCenter", "padding");
       break;
     case SIGN_UP:
-      body.classList.add("flex-center", "padding");
+      body.classList.add("flexCenter", "padding");
       break;
     case NOT_FOUND:
-      body.classList.add("flex-center", "padding");
+      body.classList.add("flexCenter", "padding");
       break;
     case SERVER_ERROR:
-      body.classList.add("flex-center", "padding");
+      body.classList.add("flexCenter", "padding");
       break;
     case PROFILE:
-      body.classList.add("profile_body", "padding2");
+      body.classList.add("profileBody", "padding2");
       break;
     case PROFILE:
-      body.classList.add("profile_body", "padding2");
+      body.classList.add("profileBody", "padding2");
       break;
     case EDIT_PROFILE:
-      body.classList.add("profile_body", "padding2");
+      body.classList.add("profileBody", "padding2");
       break;
     case EDIT_PASSWORD:
-      body.classList.add("profile_body", "padding2");
+      body.classList.add("profileBody", "padding2");
       break;
     case EDIT_PASSWORD:
-      body.classList.add("profile_body", "padding2");
+      body.classList.add("profileBody", "padding2");
       break;
     default:
       break;

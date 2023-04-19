@@ -10,7 +10,8 @@
 }
 
 @mixin flex-col-vertical-center {
-  @include flex-col();
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

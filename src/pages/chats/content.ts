@@ -82,12 +82,12 @@ const messageInput = new Input({
   id: MESSAGE,
   type: "text",
   placeholder: "Сообщение",
-  class: "message_actions_area__input",
+  class: "messageActionsArea__input",
 });
 const submit = new RoundedButton({
   type: "submit",
   image: arrow,
-  arrowClasses: "rotate-180deg",
+  arrowClasses: "rotate180Deg",
 });
 const actions = new MessageActionsArea({
   image: attach,

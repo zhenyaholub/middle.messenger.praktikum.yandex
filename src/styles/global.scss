@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap";
 
 // Variables
 @import "variables.scss";
@@ -47,7 +47,7 @@
 }
 
 html {
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
 }
 
 img {
@@ -58,22 +58,10 @@ img {
   display: flex;
 }
 
-.flex-center {
+.flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.flex-col-center {
-  @include flex-col();
-  justify-content: center;
-  align-items: center;
-}
-
-.form-title {
-  color: $textBlack;
-  font-size: 20px;
-  font-weight: 500;
 }
 
 .padding {
@@ -84,32 +72,19 @@ img {
   padding: 10px 15px;
 }
 
-.full-width {
+.fullWidth {
   width: 100%;
 }
 
-.full-height {
-  height: 100%;
-}
-
-.text_decoration_none {
+.textDecorationNone {
   text-decoration: none;
 }
 
-.blue_link {
-  font-size: 11px;
-  color: $blue;
-  transition: color 0.2s ease;
-  &:hover {
-    color: $buttonHoverBackgroundColor;
-  }
-}
-
-.overflow-x-hidden {
+.overflowXHidden {
   overflow-x: hidden;
 }
 
-.rotate-180deg {
+.rotate180Deg {
   transform: rotate(180deg);
 }
 
@@ -117,7 +92,7 @@ img {
   position: relative;
 }
 
-.form_wrapper {
+.formWrapper {
   width: 90%;
   max-width: 340px;
 }
