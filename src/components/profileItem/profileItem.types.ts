@@ -1,5 +1,5 @@
-export type ProfileItemPropsType = {
-  key: string;
-  value: string;
-  style?: string;
-};
+export interface ProfileItemPropsType {
+  key: string
+  value: string
+  style?: string
+}

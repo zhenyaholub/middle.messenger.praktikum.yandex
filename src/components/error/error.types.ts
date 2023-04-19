@@ -1,7 +1,7 @@
-import { Link } from "../link/link";
+import { type Link } from '../link/link'
 
-export type ErrorPropsType = {
-  code: string;
-  message: string;
-  link: Link;
-};
+export interface ErrorPropsType {
+  code: string
+  message: string
+  link: Link
+}

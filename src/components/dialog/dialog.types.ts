@@ -1,9 +1,9 @@
-import { Companion } from "../companion/companion";
-import { MessageActionsArea } from "../messageActionsArea/messageActionsArea";
-import { MessageBlock } from "../messageBlock/messageBlock";
+import { type Companion } from '../companion/companion'
+import { type MessageActionsArea } from '../messageActionsArea/messageActionsArea'
+import { type MessageBlock } from '../messageBlock/messageBlock'
 
-export type DialogPropsType = {
-  companion: Companion;
-  items: MessageBlock[];
-  actions: MessageActionsArea;
-};
+export interface DialogPropsType {
+  companion: Companion
+  items: MessageBlock[]
+  actions: MessageActionsArea
+}

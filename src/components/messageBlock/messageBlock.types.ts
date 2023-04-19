@@ -1,6 +1,6 @@
-import { ChatMessage } from "../chatMessage/chatMessage";
+import { type ChatMessage } from '../chatMessage/chatMessage'
 
-export type MessageBlockPropsType = {
-  dateString: string;
-  items: ChatMessage[];
-};
+export interface MessageBlockPropsType {
+  dateString: string
+  items: ChatMessage[]
+}

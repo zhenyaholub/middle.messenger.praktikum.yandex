@@ -1,16 +1,16 @@
-import { BlockPropsType } from "../../types/block";
-import { ArrowButtonPropsType } from "./arrowButton.types";
+import { type BlockPropsType } from '../../types/block'
+import { type ArrowButtonPropsType } from './arrowButton.types'
 
-import { Block } from "../../utils/block";
+import { Block } from '../../utils/block'
 
-import template from "./arrowButton.template.hbs";
+import template from './arrowButton.template.hbs'
 
 export class ArrowButton extends Block {
-  constructor(props: BlockPropsType<ArrowButtonPropsType>) {
-    super(props);
+  constructor (props: BlockPropsType<ArrowButtonPropsType>) {
+    super(props)
   }
 
-  render() {
-    return this.compile(template, this.props);
+  render () {
+    return this.compile(template, this.props)
   }
 }

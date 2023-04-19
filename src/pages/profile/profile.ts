@@ -1,14 +1,14 @@
-import { Block } from "../../utils/block";
-import { ProfilePropsType } from "./profile.types";
+import { Block } from '../../utils/block'
+import { type ProfilePropsType } from './profile.types'
 
-import template from "./profile.template.hbs";
+import template from './profile.template.hbs'
 
 export class Profile extends Block {
-  constructor(props: ProfilePropsType) {
-    super(props);
+  constructor (props: ProfilePropsType) {
+    super(props)
   }
 
-  render() {
-    return this.compile(template, this.props);
+  render () {
+    return this.compile(template, this.props)
   }
 }

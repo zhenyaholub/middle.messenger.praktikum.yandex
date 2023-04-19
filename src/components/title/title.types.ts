@@ -1,3 +1,3 @@
-export type TitlePropsType = {
-  text: string;
-};
+export interface TitlePropsType {
+  text: string
+}

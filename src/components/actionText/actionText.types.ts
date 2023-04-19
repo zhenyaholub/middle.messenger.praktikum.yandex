@@ -1,1 +1,1 @@
-export type ActionTextPropsType = { text: string };
+export interface ActionTextPropsType { text: string }

@@ -1,8 +1,8 @@
-import { Actions } from "../actions/actions";
-import { SmallAvatar } from "../smallAvatar/smallAvatar";
+import { type Actions } from '../actions/actions'
+import { type SmallAvatar } from '../smallAvatar/smallAvatar'
 
-export type CompanionPropsType = {
-  avatar: SmallAvatar;
-  name: string;
-  actions: Actions;
-};
+export interface CompanionPropsType {
+  avatar: SmallAvatar
+  name: string
+  actions: Actions
+}

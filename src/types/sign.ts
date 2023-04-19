@@ -1,6 +1,6 @@
-import { Block } from "../utils/block";
+import { type Block } from '../utils/block'
 
-export type SignPropsType = {
-  form: Block;
-  icons8: Block;
-};
+export interface SignPropsType {
+  form: Block
+  icons8: Block
+}

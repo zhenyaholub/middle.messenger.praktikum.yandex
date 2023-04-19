@@ -1,4 +1,4 @@
-export type ButtonPropsType = {
-  type: string;
-  text: string;
-};
+export interface ButtonPropsType {
+  type: string
+  text: string
+}

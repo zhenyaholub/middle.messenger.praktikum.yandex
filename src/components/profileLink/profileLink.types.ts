@@ -1,1 +1,1 @@
-export type ProfileLinkPropsType = { image: string };
+export interface ProfileLinkPropsType { image: string }

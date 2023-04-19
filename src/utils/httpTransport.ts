@@ -1,72 +1,60 @@
-import { METHOD, Options, OptionsWithoutMethod } from "../types/http";
-import { queryStringify } from "./helpers";
+import { METHOD, type Options, type OptionsWithoutMethod } from '../types/http'
+import { queryStringify } from './helpers'
 
 export class HTTPTransport {
-  get(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHOD.GET });
+  async get (url: string, options: OptionsWithoutMethod = {}) {
+    return await this.request(url, { ...options, method: METHOD.GET })
   }
 
-  post(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHOD.POST });
+  async post (url: string, options: OptionsWithoutMethod = {}) {
+    return await this.request(url, { ...options, method: METHOD.POST })
   }
 
-  put(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHOD.PUT });
+  async put (url: string, options: OptionsWithoutMethod = {}) {
+    return await this.request(url, { ...options, method: METHOD.PUT })
   }
 
-  patch(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHOD.PATCH });
+  async patch (url: string, options: OptionsWithoutMethod = {}) {
+    return await this.request(url, { ...options, method: METHOD.PATCH })
   }
 
-  delete(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHOD.DELETE });
+  async delete (url: string, options: OptionsWithoutMethod = {}) {
+    return await this.request(url, { ...options, method: METHOD.DELETE })
   }
 
-  request(
+  async request (
     url: string,
     { method = METHOD.GET, data, headers = {}, timeout = 5000 }: Options
   ) {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
+    return await new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest()
 
-      xhr.timeout = timeout;
+      xhr.timeout = timeout
 
-      Object.entries(headers).forEach(([key, value]) =>
-        xhr.setRequestHeader(key, value as string)
-      );
+      Object.entries(headers).forEach(([key, value]) => {
+        xhr.setRequestHeader(key, value)
+      })
 
-      const isGetRequest = method === METHOD.GET;
-      const isGetRequestWithQuery = isGetRequest && data;
+      const isGetRequest = method === METHOD.GET
+      const isGetRequestWithQuery = isGetRequest && data
 
       xhr.open(
         method,
         (isGetRequestWithQuery && `${url}${queryStringify(data)}`) || url
-      );
+      )
 
       if (isGetRequest) {
-        xhr.send();
+        xhr.send()
       } else {
-        xhr.send(JSON.stringify(data));
+        xhr.send(JSON.stringify(data))
       }
 
-      xhr.onload = () => resolve(xhr);
-      xhr.ontimeout = reject;
-      xhr.onerror = reject;
-    }) as Promise<XMLHttpRequest>;
+      xhr.onload = () => {
+        resolve(xhr)
+      }
+      xhr.ontimeout = reject
+
+      xhr.onerror = reject
+    })
   }
 }

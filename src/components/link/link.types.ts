@@ -1,3 +1,3 @@
-export type LinkPropsType = {
-  text: string;
-};
+export interface LinkPropsType {
+  text: string
+}

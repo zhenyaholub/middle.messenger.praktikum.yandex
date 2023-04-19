@@ -1,29 +1,29 @@
-import { REGULAR_EXPRESSIONS } from "../../utils/regularExpressions";
+import { REGULAR_EXPRESSIONS } from '../../utils/regularExpressions'
 
 export const handleSubmit = (e: Event) => {
-  e.preventDefault();
+  e.preventDefault()
 
-  let data: Record<string, FormDataEntryValue> = {};
+  const data: Record<string, FormDataEntryValue> = {}
 
-  const formDataEntries = new FormData(e.target as HTMLFormElement).entries();
+  const formDataEntries = new FormData(e.target as HTMLFormElement).entries()
 
-  for (let entry of formDataEntries) {
-    const [key, value] = entry;
+  for (const entry of formDataEntries) {
+    const [key, value] = entry
 
-    data[key] = value;
+    data[key] = value
   }
 
-  console.log(data);
-};
+  console.log(data)
+}
 
 export const validate = (event: Event) => {
   if (event) {
-    const { target } = event;
+    const { target } = event
 
-    const { name, value } = target as HTMLInputElement;
+    const { name, value } = target as HTMLInputElement
 
     return !REGULAR_EXPRESSIONS[name as keyof typeof REGULAR_EXPRESSIONS].test(
       value
-    );
+    )
   }
-};
+}

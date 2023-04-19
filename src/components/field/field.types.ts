@@ -1,8 +1,8 @@
-import { Input } from "../input/input";
-import { Label } from "../label/label";
+import { type Input } from '../input/input'
+import { type Label } from '../label/label'
 
-export type FieldPropsType = {
-  label: Label;
-  input: Input;
-  style?: string;
-};
+export interface FieldPropsType {
+  label: Label
+  input: Input
+  style?: string
+}

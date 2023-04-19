@@ -1,5 +1,5 @@
-import { RoundedButton } from "../roundedButton/roundedButton";
+import { type RoundedButton } from '../roundedButton/roundedButton'
 
-export type ArrowButtonPropsType = {
-  button: RoundedButton;
-};
+export interface ArrowButtonPropsType {
+  button: RoundedButton
+}

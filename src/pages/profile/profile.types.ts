@@ -1,14 +1,14 @@
-import { ProfileGeneralPropsType } from "../../types/profile";
+import { type ProfileGeneralPropsType } from '../../types/profile'
 
-import { Action } from "../../components/action/action";
-import { Avatar } from "../../components/avatar/avatar";
-import { ArrowButton } from "../../components/arrowButton/arrowButton";
-import { ProfileItem } from "../../components/profileItem/profileItem";
+import { type Action } from '../../components/action/action'
+import { type Avatar } from '../../components/avatar/avatar'
+import { type ArrowButton } from '../../components/arrowButton/arrowButton'
+import { type ProfileItem } from '../../components/profileItem/profileItem'
 
 export type ProfilePropsType = {
-  back: ArrowButton;
-  avatar: Avatar;
-  name: string;
-  items: ProfileItem[];
-  actions: Action[];
-} & ProfileGeneralPropsType;
+  back: ArrowButton
+  avatar: Avatar
+  name: string
+  items: ProfileItem[]
+  actions: Action[]
+} & ProfileGeneralPropsType

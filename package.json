@@ -4,8 +4,9 @@
   "description": "Pure JavaScript Web-messenger",
   "scripts": {
     "start": "parcel src/index.html -p 3000 --open --no-cache",
-    "build": "npm run stylelint && parcel build src/index.html --no-cache --public-url ./",
-    "stylelint": "npx stylelint ./src/**/*.scss"
+    "build": "npm run stylelint && npm run eslint && parcel build src/index.html --no-cache --public-url ./",
+    "stylelint": "npx stylelint ./src/**/*.scss",
+    "eslint": "npx eslint ./src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -26,12 +27,13 @@
     "@parcel/transformer-sass": "^2.8.3",
     "@parcel/transformer-xml": "^2.8.3",
     "@parcel/validator-typescript": "^2.8.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
     "eslint": "^8.38.0",
-    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-standard-with-typescript": "^34.0.1",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
     "parcel": "^2.8.3",
     "stylelint": "^15.5.0",
     "stylelint-config-standard": "^33.0.0",

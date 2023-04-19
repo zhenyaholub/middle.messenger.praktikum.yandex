@@ -1,5 +1,5 @@
-export type ChatMessagePropsType = {
-  text: string;
-  timeString: string;
-  user?: boolean;
-};
+export interface ChatMessagePropsType {
+  text: string
+  timeString: string
+  user?: boolean
+}
