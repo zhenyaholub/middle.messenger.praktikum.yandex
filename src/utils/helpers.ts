@@ -1,3 +1,4 @@
+import { REGULAR_EXPRESSIONS } from './regularExpressions'
 import { ROUTES } from './routes'
 import {
   SERVER_ERROR,
@@ -68,4 +69,10 @@ export function queryStringify (data: object) {
     query += `${key}=${value}${!isLast ? '&' : ''}`
   })
   return query
+}
+
+export const validate = (value: string, name: string) => {
+  return REGULAR_EXPRESSIONS[name as keyof typeof REGULAR_EXPRESSIONS].test(
+    value
+  )
 }

@@ -89,7 +89,9 @@ export class Block<
 
     Object.values(this.children).forEach((child) => {
       if (Array.isArray(child)) {
-        child.forEach((child) => { child.dispatchComponentDidMount() })
+        child.forEach((child) => {
+          child.dispatchComponentDidMount()
+        })
       } else {
         child.dispatchComponentDidMount()
       }
@@ -123,7 +125,7 @@ export class Block<
 
     const newElement = fragment.firstElementChild as HTMLElement
 
-    if ((this._element != null) && newElement) {
+    if (this._element != null && newElement) {
       this._element.replaceWith(newElement)
     }
 
@@ -161,7 +163,9 @@ export class Block<
     const wrappers = temp.content.querySelectorAll('[wrapper]')
 
     if (wrappers.length) {
-      wrappers.forEach((wrapper) => { wrapper.replaceWith(...wrapper.childNodes) })
+      wrappers.forEach((wrapper) => {
+        wrapper.replaceWith(...wrapper.childNodes)
+      })
     }
 
     Object.entries(this.children).forEach(([_, component]) => {
