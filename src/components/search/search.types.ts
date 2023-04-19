@@ -1,3 +1,3 @@
-import { Input } from "../input/input";
+import { type Input } from '../input/input'
 
-export type SearchPropsType = { image: string; input: Input };
+export interface SearchPropsType { image: string, input: Input }

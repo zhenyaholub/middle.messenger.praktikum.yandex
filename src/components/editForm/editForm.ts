@@ -1,16 +1,16 @@
-import { BlockPropsType } from "../../types/block";
-import { EditFormPropsType } from "./editForm.types";
+import { type BlockPropsType } from '../../types/block'
+import { type EditFormPropsType } from './editForm.types'
 
-import { Block } from "../../utils/block";
+import { Block } from '../../utils/block'
 
-import template from "./editForm.template.hbs";
+import template from './editForm.template.hbs'
 
 export class EditForm extends Block {
-  constructor(props: BlockPropsType<EditFormPropsType>) {
-    super(props);
+  constructor (props: BlockPropsType<EditFormPropsType>) {
+    super(props)
   }
 
-  render() {
-    return this.compile(template, this.props);
+  render () {
+    return this.compile(template, this.props)
   }
 }

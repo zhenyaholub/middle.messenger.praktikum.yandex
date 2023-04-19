@@ -1,11 +1,11 @@
-import { error404 } from "../pages/404/content";
-import { serverError } from "../pages/500/content";
-import { chats } from "../pages/chats/content";
-import { edit } from "../pages/edit/content";
-import { editPassword } from "../pages/editPassword/content";
-import { profile } from "../pages/profile/content";
-import { signIn } from "../pages/signIn/content";
-import { signUp } from "../pages/signUp/content";
+import { error404 } from '../pages/404/content'
+import { serverError } from '../pages/500/content'
+import { chats } from '../pages/chats/content'
+import { edit } from '../pages/edit/content'
+import { editPassword } from '../pages/editPassword/content'
+import { profile } from '../pages/profile/content'
+import { signIn } from '../pages/signIn/content'
+import { signUp } from '../pages/signUp/content'
 
 import {
   CHATS,
@@ -15,8 +15,8 @@ import {
   PROFILE,
   SERVER_ERROR,
   SIGN_IN,
-  SIGN_UP,
-} from "./urls";
+  SIGN_UP
+} from './urls'
 
 export const ROUTES = {
   [SIGN_IN]: signIn,
@@ -26,5 +26,5 @@ export const ROUTES = {
   [PROFILE]: profile,
   [EDIT_PROFILE]: edit,
   [EDIT_PASSWORD]: editPassword,
-  [CHATS]: chats,
-};
+  [CHATS]: chats
+}

@@ -1,16 +1,16 @@
-import { BlockPropsType } from "../../types/block";
+import { type BlockPropsType } from '../../types/block'
 
-import { Block } from "../../utils/block";
-import { ChatItemPropsType } from "./chatItem.types";
+import { Block } from '../../utils/block'
+import { type ChatItemPropsType } from './chatItem.types'
 
-import template from "./chatItem.template.hbs";
+import template from './chatItem.template.hbs'
 
 export class ChatItem extends Block {
-  constructor(props: BlockPropsType<ChatItemPropsType>) {
-    super(props);
+  constructor (props: BlockPropsType<ChatItemPropsType>) {
+    super(props)
   }
 
-  render() {
-    return this.compile(template, this.props);
+  render () {
+    return this.compile(template, this.props)
   }
 }

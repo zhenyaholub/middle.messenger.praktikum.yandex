@@ -1,16 +1,16 @@
-import { BlockPropsType } from "../../types/block";
-import { LinkPropsType } from "./link.types";
+import { type BlockPropsType } from '../../types/block'
+import { type LinkPropsType } from './link.types'
 
-import { Block } from "../../utils/block";
+import { Block } from '../../utils/block'
 
-import template from "./link.hbs";
+import template from './link.hbs'
 
 export class Link extends Block {
-  constructor(props: BlockPropsType<LinkPropsType>) {
-    super(props);
+  constructor (props: BlockPropsType<LinkPropsType>) {
+    super(props)
   }
 
-  render() {
-    return this.compile(template, this.props);
+  render () {
+    return this.compile(template, this.props)
   }
 }

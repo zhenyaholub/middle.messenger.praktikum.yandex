@@ -1,3 +1,3 @@
-import { ActionText } from "../actionText/actionText";
+import { type ActionText } from '../actionText/actionText'
 
-export type ActionPropsType = { actionText: ActionText };
+export interface ActionPropsType { actionText: ActionText }

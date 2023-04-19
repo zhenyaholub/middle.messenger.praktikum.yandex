@@ -1,9 +1,9 @@
-import { SmallAvatar } from "../smallAvatar/smallAvatar";
+import { type SmallAvatar } from '../smallAvatar/smallAvatar'
 
-export type ChatItemPropsType = {
-  avatar: SmallAvatar;
-  name: string;
-  lastMessage?: string;
-  lastMessageTime?: string;
-  unreadMessagesCount?: number;
-};
+export interface ChatItemPropsType {
+  avatar: SmallAvatar
+  name: string
+  lastMessage?: string
+  lastMessageTime?: string
+  unreadMessagesCount?: number
+}

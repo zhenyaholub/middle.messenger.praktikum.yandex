@@ -1,16 +1,16 @@
-import { BlockPropsType } from "../../types/block";
-import { CompanionPropsType } from "./companion.types";
+import { type BlockPropsType } from '../../types/block'
+import { type CompanionPropsType } from './companion.types'
 
-import { Block } from "../../utils/block";
+import { Block } from '../../utils/block'
 
-import template from "./companion.template.hbs";
+import template from './companion.template.hbs'
 
 export class Companion extends Block {
-  constructor(props: BlockPropsType<CompanionPropsType>) {
-    super(props);
+  constructor (props: BlockPropsType<CompanionPropsType>) {
+    super(props)
   }
 
-  render() {
-    return this.compile(template, this.props);
+  render () {
+    return this.compile(template, this.props)
   }
 }

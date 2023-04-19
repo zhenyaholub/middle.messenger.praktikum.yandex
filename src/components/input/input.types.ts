@@ -1,3 +1,3 @@
-export type InputPropsType = {
-  class?: string;
-};
+export interface InputPropsType {
+  class?: string
+}

@@ -1,5 +1,5 @@
-export type AvatarPropsType = {
-  edit?: boolean;
-  style?: string;
-  image: string;
-};
+export interface AvatarPropsType {
+  edit?: boolean
+  style?: string
+  image: string
+}

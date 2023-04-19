@@ -1,5 +1,5 @@
-import { ProfileGeneralPropsType } from "../../types/profile";
+import { type ProfileGeneralPropsType } from '../../types/profile'
 
-import { EditForm } from "../../components/editForm/editForm";
+import { type EditForm } from '../../components/editForm/editForm'
 
-export type EditPropsType = { form: EditForm } & ProfileGeneralPropsType;
+export type EditPropsType = { form: EditForm } & ProfileGeneralPropsType

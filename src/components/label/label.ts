@@ -1,14 +1,15 @@
-import { LabelPropsType } from "./label.types";
+import { type LabelPropsType } from './label.types'
 
-import { Block } from "../../utils/block";
+import { Block } from '../../utils/block'
 
-import template from "./label.template.hbs";
+import template from './label.template.hbs'
 
 export class Label extends Block {
-  constructor(props: LabelPropsType) {
-    super(props);
+  constructor (props: LabelPropsType) {
+    super(props)
   }
-  render() {
-    return this.compile(template, this.props);
+
+  render () {
+    return this.compile(template, this.props)
   }
 }

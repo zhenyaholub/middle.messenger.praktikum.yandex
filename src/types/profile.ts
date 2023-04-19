@@ -1,4 +1,4 @@
-import { Avatar } from "../components/avatar/avatar";
-import { ArrowButton } from "../components/arrowButton/arrowButton";
+import { type Avatar } from '../components/avatar/avatar'
+import { type ArrowButton } from '../components/arrowButton/arrowButton'
 
-export type ProfileGeneralPropsType = { back: ArrowButton; avatar: Avatar };
+export interface ProfileGeneralPropsType { back: ArrowButton, avatar: Avatar }

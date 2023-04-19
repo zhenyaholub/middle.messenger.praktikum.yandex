@@ -1,4 +1,4 @@
-export type LabelPropsType = {
-  for: string;
-  text: string;
-};
+export interface LabelPropsType {
+  for: string
+  text: string
+}
