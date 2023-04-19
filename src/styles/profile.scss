@@ -1,20 +1,21 @@
-.flex-col-horisontal-center {
-  @include flex-col();
+.flexColHorisontalCenter {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.profile_body {
+.profileBody {
   &__actions {
-    margin: 20px 0 0 0;
+    margin: 20px 0 0;
   }
 }
 
 @media (min-width: $md) {
-  .profile_body {
-    @include flex-center();
-  }
+  .profileBody {
+    @include flex-center;
 
-  .profile_body__data {
-    width: 40vw;
+    &__data {
+      width: 40vw;
+    }
   }
 }
