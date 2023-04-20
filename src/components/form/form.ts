@@ -1,11 +1,12 @@
 import { type BlockPropsType } from '../../types/block'
 import { type FormPropsType } from './form.types'
+import { type IMediator } from '../../types/mediator'
+
+import { submitModel } from '../../models/submit'
 
 import { Block } from '../../utils/block'
 
 import template from './form.template.hbs'
-import { SubmitModel } from '../../models/submit'
-import { type IMediator } from '../../types/mediator'
 
 export class Form extends Block {
   mediator: IMediator
@@ -19,7 +20,7 @@ export class Form extends Block {
     event.preventDefault()
     const { target } = event
 
-    new SubmitModel().submit(target!, this, this.mediator)
+    submitModel.submit(target!, this, this.mediator)
   }
 
   init () {
