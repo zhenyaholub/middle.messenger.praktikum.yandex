@@ -1,10 +1,12 @@
 import { type BlockPropsType } from '../../types/block'
-import { Block } from '../../utils/block'
+import { type IMediator } from '../../types/mediator'
 import { type InputPropsType } from './input.types'
 
+import { Block } from '../../utils/block'
+
+import { validationModel } from '../../models/validation'
+
 import template from './input.template.hbs'
-import { type IMediator } from '../../types/mediator'
-import { validate } from '../../utils/helpers'
 
 export class Input extends Block {
   mediator: IMediator
@@ -17,19 +19,11 @@ export class Input extends Block {
   }
 
   handleBlur ({ target }: Event) {
-    const { name, value } = target as HTMLInputElement
-    const isValid = validate(value, name)
-    if (!isValid) {
-      this.mediator.notify(this)
-    }
+    validationModel.validate(target!, this, this.mediator)
   }
 
   handleFocus ({ target }: Event) {
-    const { name, value } = target as HTMLInputElement
-    const isValid = validate(value, name)
-    if (!isValid) {
-      this.mediator.notify(this)
-    }
+    validationModel.validate(target!, this, this.mediator)
   }
 
   init () {

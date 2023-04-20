@@ -8,8 +8,6 @@ import { Title } from '../../components/title/title'
 import { SignUp } from './signUp'
 import { Input } from '../../components/input/input'
 
-import { handleSubmit } from '../signIn/handlers'
-
 import {
   EMAIL,
   LOGIN,
@@ -21,7 +19,8 @@ import {
 } from '../../utils/fieldNames'
 import { push } from '../../utils/helpers'
 import { SIGN_IN } from '../../utils/urls'
-import { validationMediator } from '../../utils/mediator'
+import { validationSignUp } from '../../utils/mediator'
+import { ErrorMessage } from '../../components/errorMessage/errorMessage'
 
 const title = new Title({ text: 'Регистрация' })
 
@@ -29,13 +28,19 @@ const emailLabel = new Label({ for: EMAIL, text: 'Почта' })
 const emailInput = new Input({
   name: EMAIL,
   id: EMAIL,
-  type: 'email',
+  type: 'text',
   placeholder: 'vitalik@yandex.ru',
   value: '',
   class: 'input',
-  mediator: validationMediator
+  mediator: validationSignUp
 })
-const email = new Field({ label: emailLabel, input: emailInput })
+const errorMessageEmail = new ErrorMessage({ message: 'Неверный email' })
+const email = new Field({
+  label: emailLabel,
+  input: emailInput,
+  name: EMAIL,
+  errorMessage: errorMessageEmail
+})
 
 const loginLabel = new Label({ for: LOGIN, text: 'Логин' })
 const loginInput = new Input({
@@ -45,9 +50,15 @@ const loginInput = new Input({
   placeholder: 'Vitalik',
   value: '',
   class: 'input',
-  mediator: validationMediator
+  mediator: validationSignUp
 })
-const login = new Field({ label: loginLabel, input: loginInput })
+const errorMessageLogin = new ErrorMessage({ message: 'Неверный логин' })
+const login = new Field({
+  label: loginLabel,
+  input: loginInput,
+  name: LOGIN,
+  errorMessage: errorMessageLogin
+})
 
 const firstNameLabel = new Label({ for: FIRST_NAME, text: 'Имя' })
 const firstNameInput = new Input({
@@ -57,9 +68,15 @@ const firstNameInput = new Input({
   placeholder: 'Виталий',
   value: '',
   class: 'input',
-  mediator: validationMediator
+  mediator: validationSignUp
 })
-const firstName = new Field({ label: firstNameLabel, input: firstNameInput })
+const errorMessageFirstName = new ErrorMessage({ message: 'Неверное имя' })
+const firstName = new Field({
+  label: firstNameLabel,
+  input: firstNameInput,
+  name: FIRST_NAME,
+  errorMessage: errorMessageFirstName
+})
 
 const secondNameLabel = new Label({ for: SECOND_NAME, text: 'Фамилия' })
 const secondNameInput = new Input({
@@ -69,11 +86,16 @@ const secondNameInput = new Input({
   placeholder: 'Виноградов',
   value: '',
   class: 'input',
-  mediator: validationMediator
+  mediator: validationSignUp
+})
+const errorMessageSecondName = new ErrorMessage({
+  message: 'Неверная фамилия'
 })
 const secondName = new Field({
   label: secondNameLabel,
-  input: secondNameInput
+  input: secondNameInput,
+  name: SECOND_NAME,
+  errorMessage: errorMessageSecondName
 })
 
 const phoneLabel = new Label({ for: PHONE, text: 'Телефон' })
@@ -84,11 +106,16 @@ const phoneInput = new Input({
   placeholder: '+7 (909) 967 30 30',
   value: '',
   class: 'input',
-  mediator: validationMediator
+  mediator: validationSignUp
+})
+const errorMessagePhone = new ErrorMessage({
+  message: 'Неверный телефон'
 })
 const phone = new Field({
   label: phoneLabel,
-  input: phoneInput
+  input: phoneInput,
+  name: PHONE,
+  errorMessage: errorMessagePhone
 })
 
 const passwordLabel = new Label({ for: PASSWORD, text: 'Пароль' })
@@ -98,11 +125,16 @@ const passwordInput = new Input({
   type: 'password',
   placeholder: '...........',
   class: 'input',
-  mediator: validationMediator
+  mediator: validationSignUp
+})
+const errorMessagePassword = new ErrorMessage({
+  message: 'Неверный пароль'
 })
 const password = new Field({
   label: passwordLabel,
-  input: passwordInput
+  input: passwordInput,
+  name: PASSWORD,
+  errorMessage: errorMessagePassword
 })
 
 const passwordAgainLabel = new Label({
@@ -115,12 +147,17 @@ const passwordAgainInput = new Input({
   type: 'password',
   placeholder: '...........',
   class: 'input',
-  mediator: validationMediator
+  mediator: validationSignUp
+})
+const errorMessagePasswordAgain = new ErrorMessage({
+  message: 'Неверный пароль'
 })
 const passwordAgain = new Field({
   label: passwordAgainLabel,
   input: passwordAgainInput,
-  style: 'margin:0 0 47px 0'
+  style: 'margin:0 0 47px 0',
+  name: PASSWORD_AGAIN,
+  errorMessage: errorMessagePasswordAgain
 })
 
 const fields = [
@@ -143,8 +180,10 @@ const form = new Form({
   fields,
   topButton,
   bottomButton,
-  events: { submit: handleSubmit }
+  mediator: validationSignUp
 })
 const icons8 = new Icons8({})
 
 export const signUp = new SignUp({ form, icons8 })
+
+validationSignUp.add(fields)

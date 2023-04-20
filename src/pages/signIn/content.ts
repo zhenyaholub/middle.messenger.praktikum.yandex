@@ -11,8 +11,8 @@ import { Input } from '../../components/input/input'
 import { LOGIN, PASSWORD } from '../../utils/fieldNames'
 import { push } from '../../utils/helpers'
 import { SIGN_UP } from '../../utils/urls'
-import { handleSubmit } from './handlers'
-import { validationMediator } from '../../utils/mediator'
+import { validationSignIn } from '../../utils/mediator'
+import { ErrorMessage } from '../../components/errorMessage/errorMessage'
 
 const title = new Title({ text: 'Вход' })
 
@@ -24,9 +24,15 @@ const loginInput = new Input({
   placeholder: 'Vitalik',
   value: '',
   class: 'input',
-  mediator: validationMediator
+  mediator: validationSignIn
 })
-export const login = new Field({ label: loginLabel, input: loginInput })
+const errorMessageLogin = new ErrorMessage({ message: 'Неверный логин' })
+export const login = new Field({
+  label: loginLabel,
+  input: loginInput,
+  name: LOGIN,
+  errorMessage: errorMessageLogin
+})
 
 const passwordLabel = new Label({ for: PASSWORD, text: 'Пароль' })
 const passwordInput = new Input({
@@ -35,12 +41,15 @@ const passwordInput = new Input({
   type: 'password',
   placeholder: '...........',
   class: 'input',
-  mediator: validationMediator
+  mediator: validationSignIn
 })
+const errorMessagePassword = new ErrorMessage({ message: 'Неверный пароль' })
 export const password = new Field({
   label: passwordLabel,
   input: passwordInput,
-  style: 'margin:0 0 159px 0'
+  style: 'margin:0 0 159px 0',
+  name: PASSWORD,
+  errorMessage: errorMessagePassword
 })
 
 const fields = [login, password]
@@ -55,9 +64,11 @@ const form = new Form({
   fields,
   topButton,
   bottomButton,
-  events: { submit: handleSubmit }
+  mediator: validationSignIn
 })
 
 const icons8 = new Icons8({})
 
 export const signIn = new SignIn({ form, icons8 })
+
+validationSignIn.add(fields)

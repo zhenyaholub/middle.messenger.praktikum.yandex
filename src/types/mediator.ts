@@ -3,5 +3,6 @@ import { type Block } from '../utils/block'
 
 export interface IMediator {
   fields: Field[]
-  notify: (sender: Block) => void
+  notify: (sender: Block, data: unknown) => void
+  add: (component: Field[]) => void
 }
