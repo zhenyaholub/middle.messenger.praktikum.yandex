@@ -1,8 +1,8 @@
-import { type Field } from '../components/field/field'
+import { type RoundedButton } from '../components/roundedButton/roundedButton'
 import { type Block } from '../utils/block'
 
 export interface IMediator {
-  fields: Field[]
+  components: Block[]
   notify: (sender: Block, data: unknown) => void
-  add: (component: Field[]) => void
+  add: (component: Block[] | RoundedButton[]) => void
 }

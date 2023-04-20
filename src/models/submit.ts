@@ -3,13 +3,14 @@ import { type IMediator } from '../types/mediator'
 import { type Input } from '../components/input/input'
 import { type Form } from '../components/form/form'
 import { type Field } from '../components/field/field'
+import { type MessageActionsArea } from '../components/messageActionsArea/messageActionsArea'
 
 import { validateInput } from '../utils/helpers'
 
 export class SubmitModel {
   submit = (
     target: EventTarget,
-    component: Form,
+    component: Form | MessageActionsArea,
     validationMediator: IMediator
   ) => {
     const data: Record<string, FormDataEntryValue> = {}
@@ -21,6 +22,8 @@ export class SubmitModel {
 
       data[key] = value
     }
+
+    console.log(data)
 
     Object.entries(data).forEach(([name, value]) => {
       const isValid = validateInput(value as string, name)
@@ -39,3 +42,5 @@ export class SubmitModel {
     })
   }
 }
+
+export const submitModel = new SubmitModel()

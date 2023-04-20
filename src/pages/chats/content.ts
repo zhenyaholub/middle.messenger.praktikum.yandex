@@ -89,7 +89,8 @@ const messageInput = new Input({
 const submit = new RoundedButton({
   type: 'submit',
   image: arrow,
-  arrowClasses: 'rotate180Deg'
+  arrowClasses: 'rotate180Deg',
+  disabled: ''
 })
 const actions = new MessageActionsArea({
   image: attach,
@@ -104,3 +105,5 @@ export const chats = new Chats({
   chats: chatsList,
   right: dialog
 })
+
+validationChats.add([submit])

@@ -1,5 +1,6 @@
 import { type Input } from '../components/input/input'
 import { type IMediator } from '../types/mediator'
+
 import { validateInput } from '../utils/helpers'
 
 export class ValidationModel {
