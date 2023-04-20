@@ -1,3 +1,4 @@
+import { type IMediator } from '../../types/mediator'
 import { type Button } from '../button/button'
 import { type Field } from '../field/field'
 import { type Link } from '../link/link'
@@ -8,4 +9,5 @@ export interface FormPropsType {
   fields: Field[]
   topButton: Button
   bottomButton: Link
+  mediator: IMediator
 }

@@ -15,12 +15,12 @@ import { Actions } from '../../components/actions/actions'
 import { MESSAGE, SEARCH } from '../../utils/fieldNames'
 import { push } from '../../utils/helpers'
 import { PROFILE } from '../../utils/urls'
-import { validationMediator } from '../../utils/mediator'
 
 import smallArrow from '../../../static/icons/small_arrow.svg'
 import searchIcon from '../../../static/icons/search.svg'
 import attach from '../../../static/icons/attach.svg'
 import arrow from '../../../static/icons/arrow.svg'
+import { validationChats } from '../../utils/mediator'
 
 const profileLink = new ProfileLink({
   image: smallArrow,
@@ -32,7 +32,7 @@ const input = new Input({
   type: 'text',
   placeholder: 'Поиск',
   class: 'search__input',
-  mediator: validationMediator
+  mediator: validationChats
 })
 const search = new Search({ image: searchIcon, input })
 
@@ -84,7 +84,7 @@ const messageInput = new Input({
   type: 'text',
   placeholder: 'Сообщение',
   class: 'messageActionsArea__input',
-  mediator: validationMediator
+  mediator: validationChats
 })
 const submit = new RoundedButton({
   type: 'submit',

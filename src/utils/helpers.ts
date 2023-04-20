@@ -71,7 +71,7 @@ export function queryStringify (data: object) {
   return query
 }
 
-export const validate = (value: string, name: string) => {
+export const validateInput = (value: string, name: string) => {
   return REGULAR_EXPRESSIONS[name as keyof typeof REGULAR_EXPRESSIONS].test(
     value
   )

@@ -168,20 +168,18 @@ export class Block<
       })
     }
 
+    const replace = (component: Block) => {
+      const stub = temp.content.querySelector(`[data-id="${component.id}"]`)
+
+      component.getContent()?.append(...Array.from(stub!.childNodes))
+      stub!.replaceWith(component.getContent()!)
+    }
+
     Object.entries(this.children).forEach(([_, component]) => {
       if (Array.isArray(component)) {
-        component.forEach((component) => {
-          const stub = temp.content.querySelector(
-            `[data-id="${component.id}"]`
-          )
-
-          component.getContent()?.append(...Array.from(stub!.childNodes))
-          stub!.replaceWith(component.getContent()!)
-        })
+        component.forEach((component) => { replace(component) })
       } else {
-        const stub = temp.content.querySelector(`[data-id="${component.id}"]`)
-        component.getContent()?.append(...Array.from(stub!.childNodes))
-        stub!.replaceWith(component.getContent()!)
+        replace(component)
       }
     })
 
@@ -235,6 +233,6 @@ export class Block<
   }
 
   show () {
-    this.getContent()!.style.display = 'inherit'
+    this.getContent()!.style.display = 'block'
   }
 }
