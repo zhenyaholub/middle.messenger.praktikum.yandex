@@ -90,7 +90,8 @@ const submit = new RoundedButton({
   type: 'submit',
   image: arrow,
   arrowClasses: 'rotate180Deg',
-  disabled: ''
+  disabled: '',
+  isSubmit: true
 })
 const actions = new MessageActionsArea({
   image: attach,

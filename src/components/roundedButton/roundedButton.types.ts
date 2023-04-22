@@ -3,4 +3,5 @@ export interface RoundedButtonPropsType {
   arrowClasses: string
   image: string
   disabled?: string
+  isSubmit?: boolean
 }
