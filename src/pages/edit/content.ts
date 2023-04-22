@@ -6,6 +6,7 @@ import { EditForm } from '../../components/editForm/editForm'
 import { Button } from '../../components/button/button'
 import { EditFormInput } from '../../components/editFormInput/editFormInput'
 import { EditFormItem } from '../../components/editFormItem/editFormItem'
+import { ErrorMessage } from '../../components/errorMessage/errorMessage'
 
 import arrow from '../../../static/icons/arrow.svg'
 import avatarIcon from '../../../static/icons/avatar.svg'
@@ -28,6 +29,7 @@ import {
 } from '../../utils/fieldNames'
 import { push } from '../../utils/helpers'
 import { CHATS } from '../../utils/urls'
+import { validationEdit } from '../../utils/mediator'
 
 const button = new RoundedButton({
   type: 'submit',
@@ -48,55 +50,103 @@ const emailInput = new EditFormInput({
   name: EMAIL,
   id: EMAIL,
   type: 'email',
-  value: 'pochta@yandex.ru'
+  value: 'pochta@yandex.ru',
+  mediator: validationEdit
 })
-const email = new EditFormItem({ key: EMAIL_LABEL, input: emailInput })
+const errorMessageEmail = new ErrorMessage({
+  message: 'Неверный email',
+  style: 'right:0'
+})
+const email = new EditFormItem({
+  key: EMAIL_LABEL,
+  input: emailInput,
+  errorMessage: errorMessageEmail,
+  name: EMAIL
+})
 const loginInput = new EditFormInput({
   name: LOGIN,
   id: LOGIN,
   type: 'text',
-  value: 'ivanivanov'
+  value: 'ivanivanov',
+  mediator: validationEdit
 })
-const login = new EditFormItem({ key: LOGIN_LABEL, input: loginInput })
+const errorMessageLogin = new ErrorMessage({
+  message: 'Неверный логин',
+  style: 'right:0'
+})
+const login = new EditFormItem({
+  key: LOGIN_LABEL,
+  input: loginInput,
+  errorMessage: errorMessageLogin,
+  name: LOGIN
+})
 const firstNameInput = new EditFormInput({
   name: FIRST_NAME,
   id: FIRST_NAME,
   type: 'text',
-  value: 'Иван'
+  value: 'Иван',
+  mediator: validationEdit
+})
+const errorMessageFirstName = new ErrorMessage({
+  message: 'Неверное имя',
+  style: 'right:0'
 })
 const firstName = new EditFormItem({
   key: FIRST_NAME_LABEL,
-  input: firstNameInput
+  input: firstNameInput,
+  errorMessage: errorMessageFirstName,
+  name: FIRST_NAME
 })
 const secondNameInput = new EditFormInput({
   name: SECOND_NAME,
   id: SECOND_NAME,
   type: 'text',
-  value: 'Иванов'
+  value: 'Иванов',
+  mediator: validationEdit
+})
+const errorMessageSecondName = new ErrorMessage({
+  message: 'Неверная фамилия',
+  style: 'right:0'
 })
 const secondName = new EditFormItem({
   key: SECOND_NAME_LABEL,
-  input: secondNameInput
+  input: secondNameInput,
+  errorMessage: errorMessageSecondName,
+  name: SECOND_NAME
 })
 const displayNameInput = new EditFormInput({
   name: DISPLAY_NAME,
   id: DISPLAY_NAME,
   type: 'text',
-  value: 'Иван'
+  value: 'Иван',
+  mediator: validationEdit
+})
+const errorMessageDisplayName = new ErrorMessage({
+  message: 'Неверное имя в чате',
+  style: 'right:0'
 })
 const displayName = new EditFormItem({
   key: DISPLAY_NAME_LABEL,
-  input: displayNameInput
+  input: displayNameInput,
+  errorMessage: errorMessageDisplayName,
+  name: DISPLAY_NAME
 })
 const phoneInput = new EditFormInput({
   name: PHONE,
   id: PHONE,
   type: 'text',
-  value: '+7 (909) 967 30 30'
+  value: '+7 (909) 967 30 30',
+  mediator: validationEdit
+})
+const errorMessagePhone = new ErrorMessage({
+  message: 'Неверный телефон',
+  style: 'right:0'
 })
 const phone = new EditFormItem({
   key: PHONE_LABEL,
-  input: phoneInput
+  input: phoneInput,
+  errorMessage: errorMessagePhone,
+  name: PHONE
 })
 
 const items = [email, login, firstName, secondName, displayName, phone]
@@ -110,3 +160,5 @@ const saveButton = new Button({
 const form = new EditForm({ items, button: saveButton })
 
 export const edit = new Edit({ back, avatar, form })
+
+validationEdit.add(items)
