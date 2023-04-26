@@ -4,8 +4,9 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+
   &__dot {
-    margin: 0 0 3px 0;
+    margin: 0 0 3px;
     width: 4px;
     height: 4px;
     flex-shrink: 0;

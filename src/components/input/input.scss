@@ -1,7 +1,8 @@
 .input {
-  @include none-outline();
+  @include none-outline;
+
   color: $textBlack;
   font-size: 13px;
-  padding: 0 0 7px 0;
+  padding: 0 0 7px;
   border: none;
 }

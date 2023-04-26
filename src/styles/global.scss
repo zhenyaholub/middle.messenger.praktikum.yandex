@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap";
 
 // Variables
 @import "variables.scss";
@@ -7,40 +7,40 @@
 @import "mixins.scss";
 
 // Pages
-@import "404.scss";
-@import "500.scss";
-@import "chats_without_active.scss";
 @import "chats.scss";
 @import "profile.scss";
-@import "sign_in.scss";
-@import "sign_up.scss";
 
 // Components
 @import "../components/input/input.scss";
-@import "../components/modal/modal.scss";
 @import "../components/label/label.scss";
 @import "../components/field/field.scss";
 @import "../components/button/button.scss";
-@import "../components/message/message.scss";
-@import "../components/back/back.scss";
-@import "../components/back_area/back_area.scss";
+@import "../components/arrowButton/arrowButton.scss";
+@import "../components/roundedButton/roundedButton.scss";
 @import "../components/avatar/avatar.scss";
-@import "../components/small_avatar/small_avatar.scss";
-@import "../components/profile_item/profile_item.scss";
+@import "../components/smallAvatar/smallAvatar.scss";
+@import "../components/profileItem/profileItem.scss";
 @import "../components/action/action.scss";
-@import "../components/profile_link/profile_link.scss";
+@import "../components/profileLink/profileLink.scss";
 @import "../components/search/search.scss";
-@import "../components/chat_item/chat_item.scss";
+@import "../components/chatItem/chatItem.scss";
 @import "../components/empty/empty.scss";
-@import "../components/message_actions_area/message_actions_area.scss";
+@import "../components/messageActionsArea/messageActionsArea.scss";
 @import "../components/companion/companion.scss";
 @import "../components/actions/actions.scss";
-@import "../components/message_block/message_block.scss";
-@import "../components/companion_message/companion_message.scss";
-@import "../components/companion_message_image/companion_message_image.scss";
-@import "../components/user_message/user_message.scss";
+@import "../components/actionText/actionText.scss";
+@import "../components/messageBlock/messageBlock.scss";
+@import "../components/chatMessage/chatMessage.scss";
 @import "../components/dialog/dialog.scss";
 @import "../components/editForm/editForm.scss";
+@import "../components/editFormInput/editFormInput.scss";
+@import "../components/icons8/icons8.scss";
+@import "../components/form/form.scss";
+@import "../components/title/title.scss";
+@import "../components/link/link.scss";
+@import "../components/error/error.scss";
+@import "../components/errorMessage/errorMessage.scss";
+@import "../components/editFormItem/editFormItem.scss";
 
 * {
   margin: 0;
@@ -49,7 +49,7 @@
 }
 
 html {
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
 }
 
 img {
@@ -60,21 +60,10 @@ img {
   display: flex;
 }
 
-.flex-center {
+.flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.flex-col-horisontal-center {
-  @include flex-col();
-  align-items: center;
-}
-
-.form-title {
-  color: $textBlack;
-  font-size: 20px;
-  font-weight: 500;
 }
 
 .padding {
@@ -85,27 +74,27 @@ img {
   padding: 10px 15px;
 }
 
-.full-width {
+.fullWidth {
   width: 100%;
 }
 
-.link {
+.textDecorationNone {
   text-decoration: none;
 }
 
-.blue_link {
-  font-size: 11px;
-  color: $blue;
-  transition: color 0.2s ease;
-  &:hover {
-    color: $buttonHoverBackgroundColor;
-  }
-}
-
-.overflow-x-hidden {
+.overflowXHidden {
   overflow-x: hidden;
 }
 
-.rotate-180deg {
+.rotate180Deg {
   transform: rotate(180deg);
+}
+
+.relative {
+  position: relative;
+}
+
+.formWrapper {
+  width: 90%;
+  max-width: 340px;
 }

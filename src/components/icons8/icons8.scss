@@ -1,0 +1,10 @@
+.icons8 {
+  margin: 10px 0 0;
+  text-align: center;
+
+  &__icon,
+  &__company {
+    color: $blue;
+    text-decoration: underline;
+  }
+}

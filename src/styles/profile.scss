@@ -1,9 +1,21 @@
-@media (min-width: $md) {
-  .profile_body {
-    @include flex-center();
-  }
+.flexColHorisontalCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .profile_body__data {
-    width: 40vw;
+.profileBody {
+  &__actions {
+    margin: 20px 0 0;
+  }
+}
+
+@media (min-width: $md) {
+  .profileBody {
+    @include flex-center;
+
+    &__data {
+      width: 40vw;
+    }
   }
 }
