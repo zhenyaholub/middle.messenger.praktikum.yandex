@@ -1,3 +1,4 @@
+import { type Block } from './block'
 import { REGULAR_EXPRESSIONS } from './regularExpressions'
 import { ROUTES } from './routes'
 import {
@@ -22,6 +23,12 @@ export function renderPage () {
   page.dispatchComponentDidMount()
 
   return root
+}
+
+export function render (query: string, block: Block) {
+  const element = document.querySelector(query)
+  const blockTemplate = block.getContent()
+  element?.append(blockTemplate!)
 }
 
 export function push (url: string) {
@@ -71,8 +78,12 @@ export function queryStringify (data: object) {
   return query
 }
 
-export const validateInput = (value: string, name: string) => {
+export function validateInput (value: string, name: string) {
   return REGULAR_EXPRESSIONS[name as keyof typeof REGULAR_EXPRESSIONS].test(
     value
   )
+}
+
+export function isEqual (lhs: string, rhs: string) {
+  return lhs === rhs
 }
