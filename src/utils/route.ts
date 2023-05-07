@@ -1,20 +1,15 @@
-import { type BlockPropsType } from '../types/block'
-import { type RoutesType } from '../types/routes'
+import { type BlockClassType, type RoutesType } from '../types/router'
 
 import { render, isEqual } from './helpers'
 import { type Block } from './block'
 
 export class Route {
   _pathname: RoutesType
-  _blockClass: typeof Block
+  _blockClass: BlockClassType
   _block: Block | null
-  _props: BlockPropsType<unknown>
+  _props: any
 
-  constructor (
-    pathname: RoutesType,
-    view: typeof Block,
-    props: BlockPropsType<unknown>
-  ) {
+  constructor (pathname: RoutesType, view: BlockClassType, props: any) {
     this._pathname = pathname
     this._blockClass = view
     this._block = null

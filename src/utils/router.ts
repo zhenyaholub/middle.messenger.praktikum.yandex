@@ -1,8 +1,7 @@
-import { type RoutesType } from '../types/routes'
-import { type Block } from './block'
+import { type BlockClassType, type RoutesType } from '../types/router'
 import { Route } from './route'
 
-export class Router {
+class Router {
   static __instance: Router
   routes: Route[] = []
   history: History = window.history
@@ -20,8 +19,8 @@ export class Router {
     Router.__instance = this
   }
 
-  use (pathname: RoutesType, block: typeof Block) {
-    const route = new Route(pathname, block, {})
+  use (pathname: RoutesType, block: BlockClassType, props: any) {
+    const route = new Route(pathname, block, props)
     this.routes.push(route)
 
     return this
@@ -38,6 +37,7 @@ export class Router {
 
   _onRoute (pathname: string) {
     const route = this.getRoute(pathname)
+
     if (!route) {
       return
     }
@@ -52,8 +52,6 @@ export class Router {
   }
 
   go (pathname: RoutesType) {
-    const { location } = window
-    this.history.pushState({ previousRoute: location.pathname }, '', pathname)
     this._onRoute(pathname)
   }
 
@@ -69,3 +67,5 @@ export class Router {
     return this.routes.find((route) => route.match(pathname))
   }
 }
+
+export const router = new Router()

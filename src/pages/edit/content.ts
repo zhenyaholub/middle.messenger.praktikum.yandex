@@ -27,8 +27,7 @@ import {
   PHONE,
   SECOND_NAME
 } from '../../utils/fieldNames'
-import { push } from '../../utils/helpers'
-import { CHATS } from '../../utils/urls'
+
 import { validationEdit } from '../../utils/mediator'
 
 const button = new RoundedButton({
@@ -37,8 +36,7 @@ const button = new RoundedButton({
   image: arrow
 })
 const back = new ArrowButton({
-  button,
-  events: { click: push.bind(this, CHATS) }
+  button
 })
 const avatar = new Avatar({
   image: avatarIcon,

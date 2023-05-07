@@ -5,7 +5,6 @@ import { Icons8 } from '../../components/icons8/icons8'
 import { Label } from '../../components/label/label'
 import { Link } from '../../components/link/link'
 import { Title } from '../../components/title/title'
-import { SignUp } from './signUp'
 import { Input } from '../../components/input/input'
 
 import {
@@ -17,8 +16,6 @@ import {
   SECOND_NAME,
   FIRST_NAME
 } from '../../utils/fieldNames'
-import { push } from '../../utils/helpers'
-import { SIGN_IN } from '../../utils/urls'
 import { validationSignUp } from '../../utils/mediator'
 import { ErrorMessage } from '../../components/errorMessage/errorMessage'
 
@@ -171,8 +168,7 @@ const fields = [
 ]
 const topButton = new Button({ type: 'submit', text: 'Зарегистрироваться' })
 const bottomButton = new Link({
-  text: 'Войти',
-  events: { click: push.bind(this, SIGN_IN) }
+  text: 'Войти'
 })
 
 const form = new Form({
@@ -184,6 +180,6 @@ const form = new Form({
 })
 const icons8 = new Icons8({})
 
-export const signUp = new SignUp({ form, icons8 })
+export const signUpProps = { form, icons8 }
 
 validationSignUp.add(fields)

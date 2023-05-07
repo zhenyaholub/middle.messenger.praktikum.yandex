@@ -1,5 +1,4 @@
 import { ProfileLink } from '../../components/profileLink/profileLink'
-import { Chats } from './chats'
 import { Search } from '../../components/search/search'
 import { ChatItem } from '../../components/chatItem/chatItem'
 import { SmallAvatar } from '../../components/smallAvatar/smallAvatar'
@@ -13,8 +12,6 @@ import { RoundedButton } from '../../components/roundedButton/roundedButton'
 import { Actions } from '../../components/actions/actions'
 
 import { MESSAGE, SEARCH } from '../../utils/fieldNames'
-import { push } from '../../utils/helpers'
-import { PROFILE } from '../../utils/urls'
 
 import smallArrow from '../../../static/icons/small_arrow.svg'
 import searchIcon from '../../../static/icons/search.svg'
@@ -23,8 +20,7 @@ import arrow from '../../../static/icons/arrow.svg'
 import { validationChats } from '../../utils/mediator'
 
 const profileLink = new ProfileLink({
-  image: smallArrow,
-  events: { click: push.bind(this, PROFILE) }
+  image: smallArrow
 })
 const input = new Input({
   name: SEARCH,
@@ -100,11 +96,11 @@ const actions = new MessageActionsArea({
 })
 const dialog = new Dialog({ companion, items, actions })
 
-export const chats = new Chats({
+export const chatsProps = {
   profileLink,
   search,
   chats: chatsList,
   right: dialog
-})
+}
 
 validationChats.add([submit])
