@@ -1,6 +1,5 @@
 import { type Block } from './block'
 import { REGULAR_EXPRESSIONS } from './regularExpressions'
-import { ROUTES } from './routes'
 import {
   SERVER_ERROR,
   EDIT_PROFILE,
@@ -11,30 +10,10 @@ import {
   SIGN_IN
 } from './urls'
 
-export function renderPage () {
-  const root = document.querySelector('#app')
-
-  root!.innerHTML = ''
-
-  const page = ROUTES[location.pathname as keyof typeof ROUTES]
-
-  root!.appendChild(page.getContent()!)
-
-  page.dispatchComponentDidMount()
-
-  return root
-}
-
 export function render (query: string, block: Block) {
   const element = document.querySelector(query)
   const blockTemplate = block.getContent()
   element?.append(blockTemplate!)
-}
-
-export function push (url: string) {
-  history.pushState({}, '', url)
-
-  window.dispatchEvent(new Event('popstate'))
 }
 
 export function setBodyStyles () {
