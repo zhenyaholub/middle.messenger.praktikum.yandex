@@ -1,15 +1,15 @@
 export const handleSubmit = (e: Event) => {
-  e.preventDefault();
+  e.preventDefault()
 
-  const data: Record<string, FormDataEntryValue> = {};
+  const data: Record<string, FormDataEntryValue> = {}
 
-  const formDataEntries = new FormData(e.target as HTMLFormElement).entries();
+  const formDataEntries = new FormData(e.target as HTMLFormElement).entries()
 
   for (const entry of formDataEntries) {
-    const [key, value] = entry;
+    const [key, value] = entry
 
-    data[key] = value;
+    data[key] = value
   }
 
-  console.log(data);
-};
+  console.log(data)
+}

@@ -1,73 +1,73 @@
-import { type BlockClassType, type RoutesType } from "../types/router";
-import { Route } from "./route";
+import { type BlockClassType, type RoutesType } from '../types/router'
+import { Route } from './route'
 
 class Router {
-  static __instance: Router;
-  routes: Route[] = [];
-  history: History = window.history;
-  _currentRoute: Route | null = null;
+  static __instance: Router
+  routes: Route[] = []
+  history: History = window.history
+  _currentRoute: Route | null = null
 
-  constructor() {
+  constructor () {
     if (Router.__instance) {
-      return Router.__instance;
+      return Router.__instance
     }
 
-    this.routes = [];
-    this.history = window.history;
-    this._currentRoute = null;
+    this.routes = []
+    this.history = window.history
+    this._currentRoute = null
 
-    Router.__instance = this;
+    Router.__instance = this
   }
 
-  use(pathname: RoutesType, block: BlockClassType, props: any) {
-    const route = new Route(pathname, block, props);
-    this.routes.push(route);
+  use (pathname: RoutesType, block: BlockClassType, props: any) {
+    const route = new Route(pathname, block, props)
+    this.routes.push(route)
 
-    return this;
+    return this
   }
 
-  start() {
+  start () {
     window.onpopstate = (event: Event) => {
-      const eventTarget = event.currentTarget as Window;
-      this._onRoute(eventTarget.location.pathname);
-    };
+      const eventTarget = event.currentTarget as Window
+      this._onRoute(eventTarget.location.pathname)
+    }
 
-    this._onRoute(window.location.pathname);
+    this._onRoute(window.location.pathname)
   }
 
-  _onRoute(pathname: string) {
-    const route = this.getRoute(pathname);
+  _onRoute (pathname: string) {
+    const route = this.getRoute(pathname)
 
     if (!route) {
-      return;
+      return
     }
 
     if (this._currentRoute) {
-      this._currentRoute.leave();
+      this._currentRoute.leave()
     }
 
-    this._currentRoute = route;
+    this._currentRoute = route
 
-    route.render();
+    route.render()
   }
 
-  go(pathname: RoutesType) {
-    this.history.pushState({}, "", pathname);
-    window.dispatchEvent(new Event("pathnamechanged"));
-    this._onRoute(pathname);
+  go (pathname: RoutesType) {
+    this.history.pushState({}, '', pathname)
+    window.dispatchEvent(new Event('pathnamechanged'))
+    this._onRoute(pathname)
   }
 
-  back() {
-    this.history.back();
+  back () {
+    this.history.back()
   }
 
-  forward() {
-    this.history.forward();
+  forward () {
+    this.history.forward()
   }
 
-  getRoute(pathname: string) {
-    return this.routes.find((route) => route.match(pathname));
+  getRoute (pathname: string) {
+    return this.routes.find((route) => route.match(pathname))
   }
 }
 
-export const router = new Router();
+export const router = new Router()
