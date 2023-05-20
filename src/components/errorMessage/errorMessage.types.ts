@@ -1,5 +1,5 @@
 export interface ErrorMessagePropsType {
-  message: string;
-  style?: string;
-  error?: boolean;
+  message: string
+  style?: string
+  error?: boolean
 }

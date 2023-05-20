@@ -1,7 +1,7 @@
-import { Input } from "../components/input/input";
+import { type Input } from '../components/input/input'
 
-import { RESET_ERRORS, VALIDATION } from "./actions";
+import { RESET_ERRORS, VALIDATION } from './actions'
 
-export const validate = (payload: Input) => ({ type: VALIDATION, payload });
+export const validate = (payload: Input) => ({ type: VALIDATION, payload })
 
-export const resetErrors = () => ({ type: RESET_ERRORS });
+export const resetErrors = () => ({ type: RESET_ERRORS })
