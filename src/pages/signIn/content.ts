@@ -9,9 +9,17 @@ import { Input } from '../../components/input/input'
 import { ErrorMessage } from '../../components/errorMessage/errorMessage'
 
 import { LOGIN, PASSWORD } from '../../utils/fieldNames'
-import { validationSignIn } from '../../utils/mediator'
 import { SIGN_UP } from '../../utils/urls'
 import { router } from '../../utils/router'
+import { connect } from '../../store/connect'
+import { type Block } from '../../utils/block'
+
+const withSignInLoginError = connect((state) => ({
+  error: state.validationErrors.signIn.login
+}))
+const withSignInPasswordError = connect((state) => ({
+  error: state.validationErrors.signIn.password
+}))
 
 const title = new Title({ text: 'Вход' })
 
@@ -22,15 +30,21 @@ const loginInput = new Input({
   type: 'text',
   placeholder: 'Vitalik',
   value: '',
-  class: 'input',
-  mediator: validationSignIn
+  class: 'input'
 })
-const errorMessageLogin = new ErrorMessage({ message: 'Неверный логин' })
+
+const ErrorMessageLoginComponent = withSignInLoginError(
+  ErrorMessage as typeof Block
+)
+const errorMessageLogin = new ErrorMessageLoginComponent({
+  message: 'Неверный логин'
+})
+
 export const login = new Field({
   label: loginLabel,
   input: loginInput,
   name: LOGIN,
-  errorMessage: errorMessageLogin
+  errorMessage: errorMessageLogin as ErrorMessage
 })
 
 const passwordLabel = new Label({ for: PASSWORD, text: 'Пароль' })
@@ -39,23 +53,31 @@ const passwordInput = new Input({
   id: PASSWORD,
   type: 'password',
   placeholder: '...........',
-  class: 'input',
-  mediator: validationSignIn
+  class: 'input'
 })
-const errorMessagePassword = new ErrorMessage({ message: 'Неверный пароль' })
+const ErrorMessagePasswordComponent = withSignInPasswordError(
+  ErrorMessage as typeof Block
+)
+const errorMessagePassword = new ErrorMessagePasswordComponent({
+  message: 'Неверный пароль'
+})
 export const password = new Field({
   label: passwordLabel,
   input: passwordInput,
   style: 'margin:0 0 159px 0',
   name: PASSWORD,
-  errorMessage: errorMessagePassword
+  errorMessage: errorMessagePassword as ErrorMessage
 })
 
 const fields = [login, password]
 const topButton = new Button({ type: 'submit', text: 'Авторизоваться' })
 const bottomButton = new Link({
   text: 'Нет аккаунта?',
-  events: { click: () => { router.go(SIGN_UP) } }
+  events: {
+    click: () => {
+      router.go(SIGN_UP)
+    }
+  }
 })
 
 const form = new Form({
@@ -63,11 +85,9 @@ const form = new Form({
   fields,
   topButton,
   bottomButton,
-  mediator: validationSignIn
+  name: 'signIn'
 })
 
 const icons8 = new Icons8({})
 
 export const signInProps = { form, icons8 }
-
-validationSignIn.add(fields)

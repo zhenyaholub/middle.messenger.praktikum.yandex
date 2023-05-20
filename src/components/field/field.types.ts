@@ -8,6 +8,5 @@ export interface FieldPropsType {
   input: Input
   style?: string
   name: string
-  error?: boolean
   errorMessage: ErrorMessage
 }

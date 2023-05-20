@@ -20,7 +20,6 @@ import {
   NEW_PASSWORD_AGAIN,
   OLD_PASSWORD
 } from '../../utils/fieldNames'
-import { validationEditPassword } from '../../utils/mediator'
 
 const button = new RoundedButton({
   type: 'submit',
@@ -40,8 +39,7 @@ const oldPasswordInput = new EditFormInput({
   name: OLD_PASSWORD,
   id: OLD_PASSWORD,
   type: 'password',
-  value: '............',
-  mediator: validationEditPassword
+  value: '............'
 })
 const errorMessageOldPassword = new ErrorMessage({
   message: 'Неверный пароль',
@@ -57,8 +55,7 @@ const newPasswordInput = new EditFormInput({
   name: NEW_PASSWORD,
   id: NEW_PASSWORD,
   type: 'password',
-  value: '............',
-  mediator: validationEditPassword
+  value: '............'
 })
 const errorMessageNewPassword = new ErrorMessage({
   message: 'Неверный пароль',
@@ -74,8 +71,7 @@ const newPasswordAgainInput = new EditFormInput({
   name: NEW_PASSWORD_AGAIN,
   id: NEW_PASSWORD_AGAIN,
   type: 'password',
-  value: '............',
-  mediator: validationEditPassword
+  value: '............'
 })
 const errorMessageNewPasswordAgain = new ErrorMessage({
   message: 'Неверный пароль',
@@ -99,5 +95,3 @@ const saveButton = new Button({
 const form = new EditForm({ items, button: saveButton })
 
 export const editPasswordProps = { back, avatar, form }
-
-validationEditPassword.add(items)

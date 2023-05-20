@@ -178,10 +178,15 @@ export class Block<P extends Props & EventsType = any> {
     }
 
     const replace = (component: Block) => {
+      component.setProps({ parent: this })
       const stub = temp.content.querySelector(`[data-id="${component.id}"]`)
 
-      component.getContent()?.append(...Array.from(stub!.childNodes))
-      stub!.replaceWith(component.getContent()!)
+      if (!stub) {
+        return
+      }
+
+      component.getContent()?.append(...Array.from(stub.childNodes))
+      stub.replaceWith(component.getContent()!)
     }
 
     Object.entries(this.children).forEach(([_, component]) => {
@@ -245,5 +250,9 @@ export class Block<P extends Props & EventsType = any> {
 
   show () {
     this.getContent()!.style.display = 'block'
+  }
+
+  getParent () {
+    return this.props.parent
   }
 }

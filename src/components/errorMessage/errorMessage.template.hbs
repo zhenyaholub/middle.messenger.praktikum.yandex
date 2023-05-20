@@ -1,1 +1,5 @@
-<p class="error" style="{{style}}">{{message}}</p>
+{{#if error}}
+  <p class="error" style="{{style}}">{{message}}</p>
+{{else}}
+  <p style="position: absolute;"></p>
+{{/if}}

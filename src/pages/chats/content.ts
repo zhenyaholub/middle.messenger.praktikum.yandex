@@ -12,7 +12,6 @@ import { RoundedButton } from '../../components/roundedButton/roundedButton'
 import { Actions } from '../../components/actions/actions'
 
 import { MESSAGE, SEARCH } from '../../utils/fieldNames'
-import { validationChats } from '../../utils/mediator'
 import { SETTINGS } from '../../utils/urls'
 import { router } from '../../utils/router'
 
@@ -24,7 +23,9 @@ import arrow from '../../../static/icons/arrow.svg'
 const profileLink = new ProfileLink({
   image: smallArrow,
   events: {
-    click: () => { router.go(SETTINGS) }
+    click: () => {
+      router.go(SETTINGS)
+    }
   }
 })
 const input = new Input({
@@ -32,8 +33,7 @@ const input = new Input({
   id: SEARCH,
   type: 'text',
   placeholder: 'Поиск',
-  class: 'search__input',
-  mediator: validationChats
+  class: 'search__input'
 })
 const search = new Search({ image: searchIcon, input })
 
@@ -84,8 +84,7 @@ const messageInput = new Input({
   id: MESSAGE,
   type: 'text',
   placeholder: 'Сообщение',
-  class: 'messageActionsArea__input',
-  mediator: validationChats
+  class: 'messageActionsArea__input'
 })
 const submit = new RoundedButton({
   type: 'submit',
@@ -107,5 +106,3 @@ export const chatsProps = {
   chats: chatsList,
   right: dialog
 }
-
-validationChats.add([submit])

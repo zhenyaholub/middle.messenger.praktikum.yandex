@@ -1,29 +1,17 @@
-import { validationModel } from '../../models/validation'
 import { type BlockPropsType } from '../../types/block'
-import { type IMediator } from '../../types/mediator'
-import { type EditFormInputPropsType } from './editFormInput.types'
 
 import { Block } from '../../utils/block'
 
 import template from './editFormInput.template.hbs'
 
 export class EditFormInput extends Block {
-  mediator: IMediator
-
-  constructor (
-    props: EditFormInputPropsType & BlockPropsType<Partial<HTMLInputElement>>
-  ) {
+  constructor (props: BlockPropsType<Partial<HTMLInputElement>>) {
     super(props)
-    this.mediator = this.props.mediator
   }
 
-  handleBlur ({ target }: Event) {
-    validationModel.validate(target!, this, this.mediator)
-  }
+  handleBlur ({ target }: Event) {}
 
-  handleFocus ({ target }: Event) {
-    validationModel.validate(target!, this, this.mediator)
-  }
+  handleFocus ({ target }: Event) {}
 
   init () {
     this.props.events = {}
