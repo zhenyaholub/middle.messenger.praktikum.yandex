@@ -16,10 +16,33 @@ import {
   SECOND_NAME,
   FIRST_NAME
 } from '../../utils/fieldNames'
-import { validationSignUp } from '../../utils/mediator'
 import { ErrorMessage } from '../../components/errorMessage/errorMessage'
 import { SIGN_IN } from '../../utils/urls'
 import { router } from '../../utils/router'
+import { connect } from '../../store/connect'
+import { type Block } from '../../utils/block'
+
+const withSignUpEmailError = connect((state) => ({
+  error: state.validationErrors.signUp.email
+}))
+const withSignUpLoginError = connect((state) => ({
+  error: state.validationErrors.signUp.login
+}))
+const withSignUpFirstNameError = connect((state) => ({
+  error: state.validationErrors.signUp.first_name
+}))
+const withSignUpSecondNameError = connect((state) => ({
+  error: state.validationErrors.signUp.second_name
+}))
+const withSignUpPhoneError = connect((state) => ({
+  error: state.validationErrors.signUp.phone
+}))
+const withSignUpPasswordError = connect((state) => ({
+  error: state.validationErrors.signUp.password
+}))
+const withSignUpPasswordAgainError = connect((state) => ({
+  error: state.validationErrors.signUp.password_again
+}))
 
 const title = new Title({ text: 'Регистрация' })
 
@@ -30,15 +53,19 @@ const emailInput = new Input({
   type: 'text',
   placeholder: 'vitalik@yandex.ru',
   value: '',
-  class: 'input',
-  mediator: validationSignUp
+  class: 'input'
 })
-const errorMessageEmail = new ErrorMessage({ message: 'Неверный email' })
+const ErrorMessageEmailComponent = withSignUpEmailError(
+  ErrorMessage as typeof Block
+)
+const errorMessageEmail = new ErrorMessageEmailComponent({
+  message: 'Неверный email'
+})
 const email = new Field({
   label: emailLabel,
   input: emailInput,
   name: EMAIL,
-  errorMessage: errorMessageEmail
+  errorMessage: errorMessageEmail as ErrorMessage
 })
 
 const loginLabel = new Label({ for: LOGIN, text: 'Логин' })
@@ -48,15 +75,19 @@ const loginInput = new Input({
   type: 'text',
   placeholder: 'Vitalik',
   value: '',
-  class: 'input',
-  mediator: validationSignUp
+  class: 'input'
 })
-const errorMessageLogin = new ErrorMessage({ message: 'Неверный логин' })
+const ErrorMessageLoginComponent = withSignUpLoginError(
+  ErrorMessage as typeof Block
+)
+const errorMessageLogin = new ErrorMessageLoginComponent({
+  message: 'Неверный логин'
+})
 const login = new Field({
   label: loginLabel,
   input: loginInput,
   name: LOGIN,
-  errorMessage: errorMessageLogin
+  errorMessage: errorMessageLogin as ErrorMessage
 })
 
 const firstNameLabel = new Label({ for: FIRST_NAME, text: 'Имя' })
@@ -66,15 +97,19 @@ const firstNameInput = new Input({
   type: 'text',
   placeholder: 'Виталий',
   value: '',
-  class: 'input',
-  mediator: validationSignUp
+  class: 'input'
 })
-const errorMessageFirstName = new ErrorMessage({ message: 'Неверное имя' })
+const ErrorMessageFirstNameComponent = withSignUpFirstNameError(
+  ErrorMessage as typeof Block
+)
+const errorMessageFirstName = new ErrorMessageFirstNameComponent({
+  message: 'Неверное имя'
+})
 const firstName = new Field({
   label: firstNameLabel,
   input: firstNameInput,
   name: FIRST_NAME,
-  errorMessage: errorMessageFirstName
+  errorMessage: errorMessageFirstName as ErrorMessage
 })
 
 const secondNameLabel = new Label({ for: SECOND_NAME, text: 'Фамилия' })
@@ -84,17 +119,19 @@ const secondNameInput = new Input({
   type: 'text',
   placeholder: 'Виноградов',
   value: '',
-  class: 'input',
-  mediator: validationSignUp
+  class: 'input'
 })
-const errorMessageSecondName = new ErrorMessage({
+const ErrorMessageSecondNameComponent = withSignUpSecondNameError(
+  ErrorMessage as typeof Block
+)
+const errorMessageSecondName = new ErrorMessageSecondNameComponent({
   message: 'Неверная фамилия'
 })
 const secondName = new Field({
   label: secondNameLabel,
   input: secondNameInput,
   name: SECOND_NAME,
-  errorMessage: errorMessageSecondName
+  errorMessage: errorMessageSecondName as ErrorMessage
 })
 
 const phoneLabel = new Label({ for: PHONE, text: 'Телефон' })
@@ -104,17 +141,19 @@ const phoneInput = new Input({
   type: 'text',
   placeholder: '+7 (909) 967 30 30',
   value: '',
-  class: 'input',
-  mediator: validationSignUp
+  class: 'input'
 })
-const errorMessagePhone = new ErrorMessage({
+const ErrorMessagePhoneComponent = withSignUpPhoneError(
+  ErrorMessage as typeof Block
+)
+const errorMessagePhone = new ErrorMessagePhoneComponent({
   message: 'Неверный телефон'
 })
 const phone = new Field({
   label: phoneLabel,
   input: phoneInput,
   name: PHONE,
-  errorMessage: errorMessagePhone
+  errorMessage: errorMessagePhone as ErrorMessage
 })
 
 const passwordLabel = new Label({ for: PASSWORD, text: 'Пароль' })
@@ -123,17 +162,19 @@ const passwordInput = new Input({
   id: PASSWORD,
   type: 'password',
   placeholder: '...........',
-  class: 'input',
-  mediator: validationSignUp
+  class: 'input'
 })
-const errorMessagePassword = new ErrorMessage({
+const ErrorMessagePasswordComponent = withSignUpPasswordError(
+  ErrorMessage as typeof Block
+)
+const errorMessagePassword = new ErrorMessagePasswordComponent({
   message: 'Неверный пароль'
 })
 const password = new Field({
   label: passwordLabel,
   input: passwordInput,
   name: PASSWORD,
-  errorMessage: errorMessagePassword
+  errorMessage: errorMessagePassword as ErrorMessage
 })
 
 const passwordAgainLabel = new Label({
@@ -145,10 +186,12 @@ const passwordAgainInput = new Input({
   id: PASSWORD_AGAIN,
   type: 'password',
   placeholder: '...........',
-  class: 'input',
-  mediator: validationSignUp
+  class: 'input'
 })
-const errorMessagePasswordAgain = new ErrorMessage({
+const ErrorMessagePasswordAgainComponent = withSignUpPasswordAgainError(
+  ErrorMessage as typeof Block
+)
+const errorMessagePasswordAgain = new ErrorMessagePasswordAgainComponent({
   message: 'Неверный пароль'
 })
 const passwordAgain = new Field({
@@ -156,7 +199,7 @@ const passwordAgain = new Field({
   input: passwordAgainInput,
   style: 'margin:0 0 47px 0',
   name: PASSWORD_AGAIN,
-  errorMessage: errorMessagePasswordAgain
+  errorMessage: errorMessagePasswordAgain as ErrorMessage
 })
 
 const fields = [
@@ -171,7 +214,11 @@ const fields = [
 const topButton = new Button({ type: 'submit', text: 'Зарегистрироваться' })
 const bottomButton = new Link({
   text: 'Войти',
-  events: { click: () => { router.go(SIGN_IN) } }
+  events: {
+    click: () => {
+      router.go(SIGN_IN)
+    }
+  }
 })
 
 const form = new Form({
@@ -179,10 +226,8 @@ const form = new Form({
   fields,
   topButton,
   bottomButton,
-  mediator: validationSignUp
+  name: 'signUp'
 })
 const icons8 = new Icons8({})
 
 export const signUpProps = { form, icons8 }
-
-validationSignUp.add(fields)

@@ -27,8 +27,6 @@ import {
   SECOND_NAME
 } from '../../utils/fieldNames'
 
-import { validationEdit } from '../../utils/mediator'
-
 const button = new RoundedButton({
   type: 'submit',
   arrowClasses: '',
@@ -47,8 +45,7 @@ const emailInput = new EditFormInput({
   name: EMAIL,
   id: EMAIL,
   type: 'email',
-  value: 'pochta@yandex.ru',
-  mediator: validationEdit
+  value: 'pochta@yandex.ru'
 })
 const errorMessageEmail = new ErrorMessage({
   message: 'Неверный email',
@@ -64,8 +61,7 @@ const loginInput = new EditFormInput({
   name: LOGIN,
   id: LOGIN,
   type: 'text',
-  value: 'ivanivanov',
-  mediator: validationEdit
+  value: 'ivanivanov'
 })
 const errorMessageLogin = new ErrorMessage({
   message: 'Неверный логин',
@@ -81,8 +77,7 @@ const firstNameInput = new EditFormInput({
   name: FIRST_NAME,
   id: FIRST_NAME,
   type: 'text',
-  value: 'Иван',
-  mediator: validationEdit
+  value: 'Иван'
 })
 const errorMessageFirstName = new ErrorMessage({
   message: 'Неверное имя',
@@ -98,8 +93,7 @@ const secondNameInput = new EditFormInput({
   name: SECOND_NAME,
   id: SECOND_NAME,
   type: 'text',
-  value: 'Иванов',
-  mediator: validationEdit
+  value: 'Иванов'
 })
 const errorMessageSecondName = new ErrorMessage({
   message: 'Неверная фамилия',
@@ -115,8 +109,7 @@ const displayNameInput = new EditFormInput({
   name: DISPLAY_NAME,
   id: DISPLAY_NAME,
   type: 'text',
-  value: 'Иван',
-  mediator: validationEdit
+  value: 'Иван'
 })
 const errorMessageDisplayName = new ErrorMessage({
   message: 'Неверное имя в чате',
@@ -132,8 +125,7 @@ const phoneInput = new EditFormInput({
   name: PHONE,
   id: PHONE,
   type: 'text',
-  value: '+7 (909) 967 30 30',
-  mediator: validationEdit
+  value: '+7 (909) 967 30 30'
 })
 const errorMessagePhone = new ErrorMessage({
   message: 'Неверный телефон',
@@ -157,5 +149,3 @@ const saveButton = new Button({
 const form = new EditForm({ items, button: saveButton })
 
 export const editProps = { back, avatar, form }
-
-validationEdit.add(items)

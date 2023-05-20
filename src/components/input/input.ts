@@ -1,38 +1,38 @@
-import { type BlockPropsType } from '../../types/block'
-import { type IMediator } from '../../types/mediator'
-import { type InputPropsType } from './input.types'
+import { type BlockPropsType } from "../../types/block";
+import { type InputPropsType } from "./input.types";
 
-import { Block } from '../../utils/block'
+import { Block } from "../../utils/block";
+import { store } from "../../store/store";
 
-import { validationModel } from '../../models/validation'
-
-import template from './input.template.hbs'
+import template from "./input.template.hbs";
+import { validate } from "../../store/actionsCreators";
 
 export class Input extends Block {
-  mediator: IMediator
-
-  constructor (
+  constructor(
     props: InputPropsType & BlockPropsType<Partial<HTMLInputElement>>
   ) {
-    super(props)
-    this.mediator = this.props.mediator
+    super(props);
   }
 
-  handleBlur ({ target }: Event) {
-    validationModel.validate(target!, this, this.mediator)
+  validate() {
+    store.dispatch(validate(this));
   }
 
-  handleFocus ({ target }: Event) {
-    validationModel.validate(target!, this, this.mediator)
+  handleBlur() {
+    this.validate();
   }
 
-  init () {
-    this.props.events = {}
-    this.props.events.blur = this.handleBlur.bind(this)
-    this.props.events.focus = this.handleFocus.bind(this)
+  handleFocus() {
+    this.validate();
   }
 
-  render () {
-    return this.compile(template, this.props)
+  init() {
+    this.props.events = {};
+    this.props.events.blur = this.handleBlur.bind(this);
+    this.props.events.focus = this.handleFocus.bind(this);
+  }
+
+  render() {
+    return this.compile(template, this.props);
   }
 }

@@ -2,29 +2,35 @@ import { METHOD, type Options, type OptionsWithoutMethod } from '../types/http'
 import { queryStringify } from './helpers'
 
 export class HTTPTransport {
-  async get (url: string, options: OptionsWithoutMethod = {}) {
-    return await this.request(url, { ...options, method: METHOD.GET })
+  baseUrl: string
+
+  constructor (baseUrl: string) {
+    this.baseUrl = baseUrl
   }
 
-  async post (url: string, options: OptionsWithoutMethod = {}) {
-    return await this.request(url, { ...options, method: METHOD.POST })
+  async get (options: OptionsWithoutMethod = {}, url?: string) {
+    return await this.request({ ...options, method: METHOD.GET }, url)
   }
 
-  async put (url: string, options: OptionsWithoutMethod = {}) {
-    return await this.request(url, { ...options, method: METHOD.PUT })
+  async post (options: OptionsWithoutMethod = {}, url?: string) {
+    return await this.request({ ...options, method: METHOD.POST }, url)
   }
 
-  async patch (url: string, options: OptionsWithoutMethod = {}) {
-    return await this.request(url, { ...options, method: METHOD.PATCH })
+  async put (options: OptionsWithoutMethod = {}, url?: string) {
+    return await this.request({ ...options, method: METHOD.PUT }, url)
   }
 
-  async delete (url: string, options: OptionsWithoutMethod = {}) {
-    return await this.request(url, { ...options, method: METHOD.DELETE })
+  async patch (options: OptionsWithoutMethod = {}, url?: string) {
+    return await this.request({ ...options, method: METHOD.PATCH }, url)
+  }
+
+  async delete (options: OptionsWithoutMethod = {}, url?: string) {
+    return await this.request({ ...options, method: METHOD.DELETE }, url)
   }
 
   async request (
-    url: string,
-    { method = METHOD.GET, data, headers = {}, timeout = 5000 }: Options
+    { method = METHOD.GET, data, headers = {}, timeout = 5000 }: Options,
+    url?: string
   ) {
     return await new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
@@ -37,16 +43,17 @@ export class HTTPTransport {
 
       const isGetRequest = method === METHOD.GET
       const isGetRequestWithQuery = isGetRequest && data
+      const endpoint = isGetRequestWithQuery
+        ? this.baseUrl + (url ?? '') + queryStringify(data)
+        : this.baseUrl + (url ?? '')
+      const body = data instanceof FormData ? data : JSON.stringify(data)
 
-      xhr.open(
-        method,
-        (isGetRequestWithQuery && `${url}${queryStringify(data)}`) || url
-      )
+      xhr.open(method, endpoint)
 
       if (isGetRequest) {
         xhr.send()
       } else {
-        xhr.send(JSON.stringify(data))
+        xhr.send(body)
       }
 
       xhr.onload = () => {
