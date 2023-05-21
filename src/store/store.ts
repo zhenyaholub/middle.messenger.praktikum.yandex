@@ -9,6 +9,7 @@ import { EventBus } from '../utils/eventBus'
 import { validationErrorsReducer } from './validationErrors/reducer'
 import { combineReducers } from './combineReducers'
 import { VALIDATION_ERRORS_SLICE } from './initialSlices'
+import { userReducer } from './user/reducer'
 
 class Store extends EventBus {
   private static __instance: Store
@@ -59,6 +60,9 @@ class Store extends EventBus {
 }
 
 export const store = new Store(
-  combineReducers({ validationErrors: validationErrorsReducer }),
+  combineReducers({
+    validationErrors: validationErrorsReducer,
+    user: userReducer
+  }),
   true
 )

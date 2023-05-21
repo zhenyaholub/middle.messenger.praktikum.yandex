@@ -1,4 +1,4 @@
 export enum FormNamesType {
-  SignIn = "signIn",
-  SignUp = "signUp",
+  SignIn = 'signIn',
+  SignUp = 'signUp',
 }

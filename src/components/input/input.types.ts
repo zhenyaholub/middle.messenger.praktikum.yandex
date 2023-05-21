@@ -1,3 +1,3 @@
 export interface InputPropsType {
-  class?: string;
+  class?: string
 }

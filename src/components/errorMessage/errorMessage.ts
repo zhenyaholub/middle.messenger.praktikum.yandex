@@ -1,15 +1,15 @@
-import { type ErrorMessagePropsType } from "./errorMessage.types";
+import { type ErrorMessagePropsType } from './errorMessage.types'
 
-import { Block } from "../../utils/block";
+import { Block } from '../../utils/block'
 
-import template from "./errorMessage.template.hbs";
+import template from './errorMessage.template.hbs'
 
 export class ErrorMessage extends Block {
-  constructor(props: ErrorMessagePropsType) {
-    super(props);
+  constructor (props: ErrorMessagePropsType) {
+    super(props)
   }
 
-  render() {
-    return this.compile(template, this.props);
+  render () {
+    return this.compile(template, this.props)
   }
 }

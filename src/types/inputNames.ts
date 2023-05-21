@@ -1,19 +1,19 @@
 import {
-  AVATAR,
-  DISPLAY_NAME,
-  EMAIL,
-  FIRST_NAME,
-  LOGIN,
-  MESSAGE,
-  NEW_PASSWORD,
-  NEW_PASSWORD_AGAIN,
-  OLD_PASSWORD,
-  PASSWORD,
-  PASSWORD_AGAIN,
-  PHONE,
-  SEARCH,
-  SECOND_NAME,
-} from "../utils/fieldNames";
+  type AVATAR,
+  type DISPLAY_NAME,
+  type EMAIL,
+  type FIRST_NAME,
+  type LOGIN,
+  type MESSAGE,
+  type NEW_PASSWORD,
+  type NEW_PASSWORD_AGAIN,
+  type OLD_PASSWORD,
+  type PASSWORD,
+  type PASSWORD_AGAIN,
+  type PHONE,
+  type SEARCH,
+  type SECOND_NAME
+} from '../utils/fieldNames'
 
 export type InputNames =
   | typeof LOGIN
@@ -29,4 +29,4 @@ export type InputNames =
   | typeof OLD_PASSWORD
   | typeof NEW_PASSWORD
   | typeof NEW_PASSWORD_AGAIN
-  | typeof SEARCH;
+  | typeof SEARCH
