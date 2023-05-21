@@ -2,17 +2,19 @@ import {
   EMAIL,
   FIRST_NAME,
   LOGIN,
+  MESSAGE,
   PASSWORD,
   PASSWORD_AGAIN,
   PHONE,
-  SECOND_NAME
-} from '../utils/fieldNames'
+  SEARCH,
+  SECOND_NAME,
+} from "../utils/fieldNames";
 
 export const VALIDATION_ERRORS_SLICE = {
   validationErrors: {
     signIn: {
       [LOGIN]: false,
-      [PASSWORD]: false
+      [PASSWORD]: false,
     },
     signUp: {
       [EMAIL]: false,
@@ -21,7 +23,11 @@ export const VALIDATION_ERRORS_SLICE = {
       [SECOND_NAME]: false,
       [PHONE]: false,
       [PASSWORD]: false,
-      [PASSWORD_AGAIN]: false
-    }
-  }
-}
+      [PASSWORD_AGAIN]: false,
+    },
+    messenger: {
+      [MESSAGE]: false,
+      [SEARCH]: false,
+    },
+  },
+};

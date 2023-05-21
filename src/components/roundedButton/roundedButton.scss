@@ -7,7 +7,7 @@
   transition: background-color 0.2s ease;
   cursor: pointer;
 
-  &_disabled {
+  &Disabled {
     cursor: not-allowed;
     background-color: $grey4;
   }
