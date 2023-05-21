@@ -1,20 +1,21 @@
-import { Field } from "../../components/field/field";
+import { type Field } from "../../components/field/field";
 
 import { type ReducerType } from "../store.types";
 
-import { REGULAR_EXPRESSIONS } from "../../utils/regularExpressions";
 import {
   RESET_ERRORS,
   VALIDATE,
   VALIDATE_ALL,
   VALIDATE_MESSAGE,
+  VALIDATE_PASSWORD_AGAIN,
 } from "./actions";
 
 import { VALIDATION_ERRORS_SLICE } from "../initialSlices";
-import { Input } from "../../components/input/input";
-import { Form } from "../../components/form/form";
+import { type Input } from "../../components/input/input";
+import { type Form } from "../../components/form/form";
 import { getIsValid } from "../../utils/helpers";
-import { InputNames } from "../../types/inputNames";
+import { type InputNames } from "../../types/inputNames";
+import { PASSWORD_AGAIN } from "../../utils/fieldNames";
 
 export const validationErrorsReducer: ReducerType = (
   state,
@@ -74,6 +75,18 @@ export const validationErrorsReducer: ReducerType = (
       }
 
       return { ...state };
+    }
+    case VALIDATE_PASSWORD_AGAIN: {
+      const { value: passwordAgainValue } = payload.getContent();
+      const { value } = document.querySelector(
+        "form[name=signUp] input[name=password]"
+      ) as HTMLInputElement;
+      const isSame = value === passwordAgainValue;
+
+      return {
+        ...state,
+        signUp: { ...state.signUp, [PASSWORD_AGAIN]: !isSame },
+      };
     }
     case RESET_ERRORS: {
       return {

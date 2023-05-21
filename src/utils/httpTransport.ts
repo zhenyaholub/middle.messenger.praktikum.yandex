@@ -8,23 +8,23 @@ export class HTTPTransport {
     this.baseUrl = baseUrl
   }
 
-  async get (options: OptionsWithoutMethod = {}, url?: string) {
+  async get (url?: string, options: OptionsWithoutMethod = {}) {
     return await this.request({ ...options, method: METHOD.GET }, url)
   }
 
-  async post (options: OptionsWithoutMethod = {}, url?: string) {
+  async post (url?: string, options: OptionsWithoutMethod = {}) {
     return await this.request({ ...options, method: METHOD.POST }, url)
   }
 
-  async put (options: OptionsWithoutMethod = {}, url?: string) {
+  async put (url?: string, options: OptionsWithoutMethod = {}) {
     return await this.request({ ...options, method: METHOD.PUT }, url)
   }
 
-  async patch (options: OptionsWithoutMethod = {}, url?: string) {
+  async patch (url?: string, options: OptionsWithoutMethod = {}) {
     return await this.request({ ...options, method: METHOD.PATCH }, url)
   }
 
-  async delete (options: OptionsWithoutMethod = {}, url?: string) {
+  async delete (url?: string, options: OptionsWithoutMethod = {}) {
     return await this.request({ ...options, method: METHOD.DELETE }, url)
   }
 
