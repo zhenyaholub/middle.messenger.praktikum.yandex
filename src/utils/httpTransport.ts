@@ -29,7 +29,12 @@ export class HTTPTransport {
   }
 
   async request (
-    { method = METHOD.GET, data, headers = {}, timeout = 5000 }: Options,
+    {
+      method = METHOD.GET,
+      data,
+      headers = { 'Content-Type': 'application/json' },
+      timeout = 5000
+    }: Options,
     url?: string
   ) {
     return await new Promise((resolve, reject) => {

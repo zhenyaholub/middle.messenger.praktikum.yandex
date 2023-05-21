@@ -27,7 +27,7 @@ export const REGULAR_EXPRESSIONS = {
   [NEW_PASSWORD_AGAIN]: PASSWORD_REGULAR_EXPRESSION,
   [SEARCH]: NOT_EMPTY_REGULAR_EXPRESSION,
   [MESSAGE]: NOT_EMPTY_REGULAR_EXPRESSION,
-  [PHONE]: /^(\+)?\d{10,15}$/g,
+  [PHONE]: /^(\+)?\d{10,15}$/,
   [EMAIL]:
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(\.)[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
   [FIRST_NAME]: NAME_REGULAR_EXPRESSION,

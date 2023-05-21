@@ -6,19 +6,19 @@ const authApiInstance = new HTTPTransport(AUTH_URL)
 
 class AuthAPI {
   async create (body: UserDataType) {
-    return await authApiInstance.post({ data: body }, '/signup')
+    return await authApiInstance.post('/signup', { data: body })
   }
 
   async login (body: Pick<UserDataType, 'login' | 'password'>) {
-    return await authApiInstance.post({ data: body }, '/signin')
+    return await authApiInstance.post('/signin', { data: body })
   }
 
   async get () {
-    return await authApiInstance.get({}, '/user')
+    return await authApiInstance.get('/user', {})
   }
 
   async logout () {
-    return await authApiInstance.post({}, '/logout')
+    return await authApiInstance.post('/logout', {})
   }
 }
 

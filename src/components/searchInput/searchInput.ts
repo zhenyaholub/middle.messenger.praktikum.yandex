@@ -1,28 +1,28 @@
-import { type BlockPropsType } from "../../types/block";
+import { type BlockPropsType } from '../../types/block'
 
-import { Input } from "../input/input";
-import { type InputPropsType } from "../input/input.types";
+import { Input } from '../input/input'
+import { type InputPropsType } from '../input/input.types'
 
 export class SearchInput extends Input {
-  constructor(
+  constructor (
     props: InputPropsType & BlockPropsType<Partial<HTMLInputElement>>
   ) {
-    super(props);
+    super(props)
   }
 
-  validate() {}
+  validate () {}
 
-  handleBlur() {
-    this.validate();
+  handleBlur () {
+    this.validate()
   }
 
-  handleFocus() {
-    this.validate();
+  handleFocus () {
+    this.validate()
   }
 
-  init() {
-    this.props.events = {};
-    this.props.events.blur = this.handleBlur.bind(this);
-    this.props.events.focus = this.handleFocus.bind(this);
+  init () {
+    this.props.events = {}
+    this.props.events.blur = this.handleBlur.bind(this)
+    this.props.events.focus = this.handleFocus.bind(this)
   }
 }

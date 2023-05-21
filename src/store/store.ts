@@ -2,7 +2,8 @@ import {
   type ActionType,
   type ReducerType,
   type StateType,
-  StoreEvents
+  StoreEvents,
+  type AsyncActionType
 } from './store.types'
 
 import { EventBus } from '../utils/eventBus'
@@ -46,7 +47,11 @@ class Store extends EventBus {
     return this.state
   }
 
-  public dispatch (action: ActionType) {
+  public dispatch (action: ActionType | AsyncActionType) {
+    if (typeof action === 'function') {
+      action(store.dispatch, store.getState); return
+    }
+
     const previousState = this.state
 
     this.state = this.reducer(this.state, action)
