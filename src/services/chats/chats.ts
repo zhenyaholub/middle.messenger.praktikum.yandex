@@ -9,54 +9,54 @@ export class ChatsAPI {
   }
 
   async create (title: string) {
-    return await chatsApiInstance.post({ data: { title } })
+    return await chatsApiInstance.post('', { data: { title } })
   }
 
   async delete (chatId: number) {
-    return await chatsApiInstance.delete({ data: { chatId } })
+    return await chatsApiInstance.delete('', { data: { chatId } })
   }
 
   async getFiles (chatId: number) {
-    return await chatsApiInstance.get({}, `/${chatId}/files`)
+    return await chatsApiInstance.get(`/${chatId}/files`, {})
   }
 
   async getArchive () {
-    return await chatsApiInstance.get({}, '/archive')
+    return await chatsApiInstance.get('/archive', {})
   }
 
   async archiveChat (chatId: number) {
-    return await chatsApiInstance.post({ data: { chatId } }, '/archive')
+    return await chatsApiInstance.post('/archive', { data: { chatId } })
   }
 
   async unarchiveChat (chatId: number) {
-    return await chatsApiInstance.post({ data: { chatId } }, '/unarchive')
+    return await chatsApiInstance.post('/unarchive', { data: { chatId } })
   }
 
   async getCommonChat (chatId: number) {
-    return await chatsApiInstance.get({}, `/${chatId}/common`)
+    return await chatsApiInstance.get(`/${chatId}/common`, {})
   }
 
   async getChatUsers (chatId: number) {
-    return await chatsApiInstance.get({}, `/${chatId}/users`)
+    return await chatsApiInstance.get(`/${chatId}/users`, {})
   }
 
   async getChatNewMessages (chatId: number) {
-    return await chatsApiInstance.get({}, `/new/${chatId}`)
+    return await chatsApiInstance.get(`/new/${chatId}`, {})
   }
 
   async uploadChatAvatar (formData: FormData) {
-    return await chatsApiInstance.put({ data: formData }, '/avatar')
+    return await chatsApiInstance.put('/avatar', { data: formData })
   }
 
   async addChatUsers (chatId: number, users: number[]) {
-    return await chatsApiInstance.put({ data: { chatId, users } }, '/users')
+    return await chatsApiInstance.put('/users', { data: { chatId, users } })
   }
 
   async deleteChatUsers (chatId: number, users: number[]) {
-    return await chatsApiInstance.delete({ data: { chatId, users } }, '/users')
+    return await chatsApiInstance.delete('/users', { data: { chatId, users } })
   }
 
   async getToken (chatId: number) {
-    return await chatsApiInstance.delete({}, `/token/${chatId}`)
+    return await chatsApiInstance.delete(`/token/${chatId}`, {})
   }
 }

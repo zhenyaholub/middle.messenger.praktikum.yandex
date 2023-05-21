@@ -24,6 +24,8 @@ import {
   SIGN_IN,
   MESSENGER
 } from './urls'
+import { type Form } from '../components/form/form'
+import { type FormDataType } from '../types/formData'
 
 export function render (query: string, block: Block) {
   const element = document.querySelector(query)
@@ -117,4 +119,25 @@ export function getIsValid (name: InputNames, value: string) {
   return REGULAR_EXPRESSIONS[name as keyof typeof REGULAR_EXPRESSIONS].test(
     value
   )
+}
+
+export function getFormData (form: Form): FormDataType {
+  const formData: FormDataType = {}
+  const formHtml = form.getContent() as HTMLFormElement
+  const formDataEntries = new FormData(formHtml).entries()
+
+  for (const [key, value] of formDataEntries) {
+    formData[key] = value
+  }
+
+  return formData
+}
+
+export function getIsFormValid (formData: FormDataType): boolean {
+  const isValid = Object.entries(formData).every(([name, value]) =>
+    REGULAR_EXPRESSIONS[name as keyof typeof REGULAR_EXPRESSIONS].test(
+      value as string
+    )
+  )
+  return isValid
 }
