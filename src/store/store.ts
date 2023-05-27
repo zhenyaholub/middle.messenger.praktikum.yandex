@@ -9,15 +9,23 @@ import {
 import { EventBus } from '../utils/eventBus'
 import { validationErrorsReducer } from './validationErrors/reducer'
 import { combineReducers } from './combineReducers'
-import { VALIDATION_ERRORS_SLICE } from './initialSlices'
+import {
+  NOTIFICATION_SLICE,
+  SEARCH_SLICE,
+  VALIDATION_ERRORS_SLICE
+} from './initialSlices'
 import { userReducer } from './user/reducer'
+import { notificationReducer } from './notification/reducer'
+import { searchReducer } from './search/reducer'
 
 class Store extends EventBus {
   private static __instance: Store
   private readonly reducer: ReducerType
   private readonly logger: boolean | undefined = false
   private state: StateType = {
-    ...VALIDATION_ERRORS_SLICE
+    ...VALIDATION_ERRORS_SLICE,
+    ...NOTIFICATION_SLICE,
+    ...SEARCH_SLICE
   }
 
   constructor (reducer: ReducerType, logger?: boolean) {
@@ -49,7 +57,8 @@ class Store extends EventBus {
 
   public dispatch (action: ActionType | AsyncActionType) {
     if (typeof action === 'function') {
-      action(store.dispatch, store.getState); return
+      action(this.dispatch, this.getState)
+      return
     }
 
     const previousState = this.state
@@ -67,7 +76,9 @@ class Store extends EventBus {
 export const store = new Store(
   combineReducers({
     validationErrors: validationErrorsReducer,
-    user: userReducer
+    user: userReducer,
+    notification: notificationReducer,
+    search: searchReducer
   }),
   true
 )

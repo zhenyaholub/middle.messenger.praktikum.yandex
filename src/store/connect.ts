@@ -9,8 +9,9 @@ export function connect (mapStateToProps: (state: StateType) => StateType) {
       constructor (props: Props) {
         super({ ...props, ...mapStateToProps(store.getState()) })
 
-        store.on(StoreEvents.Updated, () => { this.setProps({ ...mapStateToProps(store.getState()) }) }
-        )
+        store.on(StoreEvents.Updated, () => {
+          this.setProps({ ...mapStateToProps(store.getState()) })
+        })
       }
     }
   }
