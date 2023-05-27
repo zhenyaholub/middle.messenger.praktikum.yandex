@@ -1,3 +1,5 @@
+import { setSearchLabelVisibility } from '../../store/search/actionCreators'
+import { store } from '../../store/store'
 import { type BlockPropsType } from '../../types/block'
 
 import { Input } from '../input/input'
@@ -10,14 +12,14 @@ export class SearchInput extends Input {
     super(props)
   }
 
-  validate () {}
-
   handleBlur () {
-    this.validate()
+    const { value } = this.getContent() as HTMLInputElement
+
+    store.dispatch(setSearchLabelVisibility(false, value))
   }
 
   handleFocus () {
-    this.validate()
+    store.dispatch(setSearchLabelVisibility(false))
   }
 
   init () {

@@ -39,13 +39,6 @@ export class HTTPTransport {
   ) {
     return await new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
-
-      xhr.timeout = timeout
-
-      Object.entries(headers).forEach(([key, value]) => {
-        xhr.setRequestHeader(key, value)
-      })
-
       const isGetRequest = method === METHOD.GET
       const isGetRequestWithQuery = isGetRequest && data
       const endpoint = isGetRequestWithQuery
@@ -55,6 +48,12 @@ export class HTTPTransport {
 
       xhr.open(method, endpoint)
 
+      xhr.timeout = timeout
+
+      Object.entries(headers).forEach(([key, value]) => {
+        xhr.setRequestHeader(key, value)
+      })
+
       if (isGetRequest) {
         xhr.send()
       } else {
@@ -62,7 +61,7 @@ export class HTTPTransport {
       }
 
       xhr.onload = () => {
-        resolve(xhr)
+        resolve({ status: xhr.status, response: xhr.response })
       }
       xhr.ontimeout = reject
 

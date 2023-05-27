@@ -6,4 +6,7 @@ export interface EventsType {
 interface StyleType {
   style?: string
 }
-export type BlockPropsType<P> = P & EventsType & StyleType
+export interface ImageType {
+  image?: string
+}
+export type BlockPropsType<P> = P & EventsType & StyleType & ImageType

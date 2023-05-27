@@ -15,7 +15,8 @@ export const signUp =
       delete formData.password_again
 
       if (isValid) {
-        await authApi.create(formData as never as UserDataType)
+        const res = await authApi.create(formData as never as UserDataType)
+        console.log(res)
       }
     }
 

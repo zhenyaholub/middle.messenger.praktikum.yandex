@@ -31,3 +31,11 @@ export const VALIDATION_ERRORS_SLICE = {
     }
   }
 }
+
+export const NOTIFICATION_SLICE = {
+  notification: { isVisible: false }
+}
+
+export const SEARCH_SLICE = {
+  search: { isLabelVisible: true }
+}

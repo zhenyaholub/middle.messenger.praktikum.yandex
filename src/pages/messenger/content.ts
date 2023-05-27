@@ -2,7 +2,6 @@ import { ProfileLink } from '../../components/profileLink/profileLink'
 import { Search } from '../../components/search/search'
 import { ChatItem } from '../../components/chatItem/chatItem'
 import { SmallAvatar } from '../../components/smallAvatar/smallAvatar'
-import { Input } from '../../components/input/input'
 import { Dialog } from '../../components/dialog/dialog'
 import { Companion } from '../../components/companion/companion'
 import { MessageBlock } from '../../components/messageBlock/messageBlock'
@@ -20,6 +19,10 @@ import searchIcon from '../../../static/icons/search.svg'
 import attach from '../../../static/icons/attach.svg'
 import arrow from '../../../static/icons/arrow.svg'
 import { MessageInput } from '../../components/messageInput/messageInput'
+import { SearchInput } from '../../components/searchInput/searchInput'
+import { SearchLabel } from '../../components/searchLabel/searchLabel'
+import { connect } from '../../store/connect'
+import { type Block } from '../../utils/block'
 
 const profileLink = new ProfileLink({
   image: smallArrow,
@@ -29,14 +32,29 @@ const profileLink = new ProfileLink({
     }
   }
 })
-const input = new Input({
+const input = new SearchInput({
   name: SEARCH,
   id: SEARCH,
   type: 'text',
   placeholder: 'Поиск',
   class: 'search__input'
 })
-const search = new Search({ image: searchIcon, input })
+const withIsSearchLabelVisible = connect((state) => ({
+  isVisible: state.search.isLabelVisible
+}))
+const SearchLabelComponent = withIsSearchLabelVisible(
+  SearchLabel as typeof Block
+)
+
+const searchLabel = new SearchLabelComponent({
+  image: searchIcon
+}) as SearchLabel
+
+const search = new Search({
+  image: searchIcon,
+  input,
+  searchLabel
+})
 
 const avatar = new SmallAvatar({})
 const avatar2 = new SmallAvatar({})
