@@ -23,6 +23,8 @@ import { SearchInput } from '../../components/searchInput/searchInput'
 import { SearchLabel } from '../../components/searchLabel/searchLabel'
 import { connect } from '../../store/connect'
 import { type Block } from '../../utils/block'
+import { connectToUserData } from '../../utils/helpers'
+import { Chats } from './messenger'
 
 const profileLink = new ProfileLink({
   image: smallArrow,
@@ -125,3 +127,5 @@ export const chatsProps = {
   chats: chatsList,
   right: dialog
 }
+
+export const MessengerComponent = connectToUserData(Chats as typeof Block)

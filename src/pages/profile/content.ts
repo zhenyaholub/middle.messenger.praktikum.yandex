@@ -24,6 +24,9 @@ import { router } from '../../utils/router'
 
 import arrow from '../../../static/icons/arrow.svg'
 import avatarIcon from '../../../static/icons/avatar.svg'
+import { connectToUserData } from '../../utils/helpers'
+import { Profile } from './profile'
+import { type Block } from '../../utils/block'
 
 const button = new RoundedButton({
   type: 'button',
@@ -33,7 +36,9 @@ const button = new RoundedButton({
 const back = new ArrowButton({
   button,
   events: {
-    click: () => { router.go(MESSENGER) }
+    click: () => {
+      router.go(MESSENGER)
+    }
   }
 })
 const avatar = new Avatar({
@@ -62,7 +67,9 @@ const editText = new ActionText({
   text: 'Изменить данные',
   style: 'color:#3369F3',
   events: {
-    click: () => { router.go(EDIT_PROFILE) }
+    click: () => {
+      router.go(EDIT_PROFILE)
+    }
   }
 })
 const edit = new Action({ actionText: editText })
@@ -70,7 +77,9 @@ const editPasswordText = new ActionText({
   text: 'Изменить пароль',
   style: 'color:#3369F3',
   events: {
-    click: () => { router.go(EDIT_PASSWORD) }
+    click: () => {
+      router.go(EDIT_PASSWORD)
+    }
   }
 })
 const editPassword = new Action({ actionText: editPasswordText })
@@ -78,7 +87,9 @@ const exitText = new ActionText({
   text: 'Выйти',
   style: 'color:#FF0000',
   events: {
-    click: () => { router.go(SIGN_IN) }
+    click: () => {
+      router.go(SIGN_IN)
+    }
   }
 })
 const exit = new Action({ actionText: exitText, style: 'border-bottom:none' })
@@ -92,3 +103,5 @@ export const profileProps = {
   items,
   actions
 }
+
+export const SettingsComponent = connectToUserData(Profile as typeof Block)

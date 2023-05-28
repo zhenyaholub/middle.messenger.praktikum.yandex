@@ -1,17 +1,13 @@
 import { type ReducerType } from '../store.types'
 
-import { SIGN_IN, SIGN_UP } from './actions'
+import { SET_USER_DATA } from './actions'
 
 export const userReducer: ReducerType = (state, { type, payload }) => {
   switch (type) {
-    case SIGN_UP: {
+    case SET_USER_DATA: {
       return {
-        ...state
-      }
-    }
-    case SIGN_IN: {
-      return {
-        ...state
+        ...state,
+        ...payload
       }
     }
     default:

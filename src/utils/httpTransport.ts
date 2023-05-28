@@ -1,7 +1,8 @@
 import { METHOD, type Options, type OptionsWithoutMethod } from '../types/http'
 import { queryStringify } from './helpers'
+import { type IHTTPTransport } from './httpTransport.types'
 
-export class HTTPTransport {
+export class HTTPTransport implements IHTTPTransport {
   baseUrl: string
 
   constructor (baseUrl: string) {
@@ -33,12 +34,16 @@ export class HTTPTransport {
       method = METHOD.GET,
       data,
       headers = { 'Content-Type': 'application/json' },
-      timeout = 5000
+      timeout = 5000,
+      withCredentials = false
     }: Options,
     url?: string
-  ) {
+  ): Promise<{ status: number, response: any }> {
     return await new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
+      if (withCredentials) {
+        xhr.withCredentials = true
+      }
       const isGetRequest = method === METHOD.GET
       const isGetRequestWithQuery = isGetRequest && data
       const endpoint = isGetRequestWithQuery

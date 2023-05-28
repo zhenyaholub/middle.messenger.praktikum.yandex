@@ -12,6 +12,7 @@ import { combineReducers } from './combineReducers'
 import {
   NOTIFICATION_SLICE,
   SEARCH_SLICE,
+  USER_SLICE,
   VALIDATION_ERRORS_SLICE
 } from './initialSlices'
 import { userReducer } from './user/reducer'
@@ -25,7 +26,8 @@ class Store extends EventBus {
   private state: StateType = {
     ...VALIDATION_ERRORS_SLICE,
     ...NOTIFICATION_SLICE,
-    ...SEARCH_SLICE
+    ...SEARCH_SLICE,
+    ...USER_SLICE
   }
 
   constructor (reducer: ReducerType, logger?: boolean) {
@@ -57,7 +59,7 @@ class Store extends EventBus {
 
   public dispatch (action: ActionType | AsyncActionType) {
     if (typeof action === 'function') {
-      action(this.dispatch, this.getState)
+      action(this.dispatch.bind(this), this.getState.bind(this))
       return
     }
 

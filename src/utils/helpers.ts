@@ -1,10 +1,7 @@
-import { Edit } from '../components/edit/edit'
-import { Chats } from '../pages/messenger/messenger'
-import { chatsProps } from '../pages/messenger/content'
-import { editProps } from '../pages/edit/content'
+import { MessengerComponent, chatsProps } from '../pages/messenger/content'
+import { EditComponent, editProps } from '../pages/edit/content'
 import { editPasswordProps } from '../pages/editPassword/content'
-import { profileProps } from '../pages/profile/content'
-import { Profile } from '../pages/profile/profile'
+import { SettingsComponent, profileProps } from '../pages/profile/content'
 import { signInProps } from '../pages/signIn/content'
 import { SignIn } from '../pages/signIn/signIn'
 import { signUpProps } from '../pages/signUp/content'
@@ -26,6 +23,10 @@ import {
 } from './urls'
 import { type Form } from '../components/form/form'
 import { type FormDataType } from '../types/formData'
+import { type Props } from '../types/block'
+import { type BlockClassType } from '../types/router'
+import { store } from '../store/store'
+import { getUserData } from '../store/user/actionCreators'
 
 export function render (query: string, block: Block) {
   const element = document.querySelector(query)
@@ -108,10 +109,14 @@ export function initRoutes () {
   router
     .use(SIGN_IN, SignIn, signInProps)
     .use(SIGN_UP, SignUp, signUpProps)
-    .use(SETTINGS, Profile, profileProps)
-    .use(EDIT_PASSWORD, Edit, editPasswordProps)
-    .use(EDIT_PROFILE, Edit, editProps)
-    .use(MESSENGER, Chats, chatsProps)
+    .use(SETTINGS, SettingsComponent as unknown as BlockClassType, profileProps)
+    .use(
+      EDIT_PASSWORD,
+      EditComponent as unknown as BlockClassType,
+      editPasswordProps
+    )
+    .use(EDIT_PROFILE, EditComponent as unknown as BlockClassType, editProps)
+    .use(MESSENGER, MessengerComponent as unknown as BlockClassType, chatsProps)
     .start()
 }
 
@@ -140,4 +145,20 @@ export function getIsFormValid (formData: FormDataType): boolean {
     )
   )
   return isValid
+}
+
+export function isSuccessStatusCode (statusCode: number): boolean {
+  return String(statusCode).startsWith('2')
+}
+
+export function connectToUserData (Component: typeof Block) {
+  return class extends Component {
+    constructor (props: Props) {
+      super({ ...props })
+    }
+
+    init () {
+      store.dispatch(getUserData())
+    }
+  }
 }
