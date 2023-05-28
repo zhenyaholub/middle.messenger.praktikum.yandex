@@ -14,12 +14,7 @@ import {
   SECOND_NAME_LABEL
 } from '../../utils/fieldLabels'
 
-import {
-  EDIT_PASSWORD,
-  EDIT_PROFILE,
-  MESSENGER,
-  SIGN_IN
-} from '../../utils/urls'
+import { EDIT_PASSWORD, EDIT_PROFILE, MESSENGER } from '../../utils/urls'
 import { router } from '../../utils/router'
 
 import arrow from '../../../static/icons/arrow.svg'
@@ -27,6 +22,7 @@ import avatarIcon from '../../../static/icons/avatar.svg'
 import { connectToUserData } from '../../utils/helpers'
 import { Profile } from './profile'
 import { type Block } from '../../utils/block'
+import { handleLogout } from './handlers'
 
 const button = new RoundedButton({
   type: 'button',
@@ -87,9 +83,7 @@ const exitText = new ActionText({
   text: 'Выйти',
   style: 'color:#FF0000',
   events: {
-    click: () => {
-      router.go(SIGN_IN)
-    }
+    click: handleLogout
   }
 })
 const exit = new Action({ actionText: exitText, style: 'border-bottom:none' })

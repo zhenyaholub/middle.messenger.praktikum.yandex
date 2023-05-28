@@ -20,6 +20,8 @@ import {
   NEW_PASSWORD_AGAIN,
   OLD_PASSWORD
 } from '../../utils/fieldNames'
+import { router } from '../../utils/router'
+import { MESSENGER } from '../../utils/urls'
 
 const button = new RoundedButton({
   type: 'submit',
@@ -27,7 +29,12 @@ const button = new RoundedButton({
   image: arrow
 })
 const back = new ArrowButton({
-  button
+  button,
+  events: {
+    click: () => {
+      router.go(MESSENGER)
+    }
+  }
 })
 const avatar = new Avatar({
   image: avatarIcon,

@@ -29,6 +29,8 @@ import {
 import { connectToUserData } from '../../utils/helpers'
 import { Edit } from '../../components/edit/edit'
 import { type Block } from '../../utils/block'
+import { router } from '../../utils/router'
+import { MESSENGER } from '../../utils/urls'
 
 const button = new RoundedButton({
   type: 'submit',
@@ -36,7 +38,12 @@ const button = new RoundedButton({
   image: arrow
 })
 const back = new ArrowButton({
-  button
+  button,
+  events: {
+    click: () => {
+      router.go(MESSENGER)
+    }
+  }
 })
 const avatar = new Avatar({
   image: avatarIcon,
