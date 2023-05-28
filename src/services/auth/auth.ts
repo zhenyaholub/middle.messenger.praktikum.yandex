@@ -14,7 +14,7 @@ class AuthAPI {
   }
 
   async get () {
-    return await authApiInstance.get('/user', { withCredentials: true })
+    return await authApiInstance.get('/user')
   }
 
   async logout () {
