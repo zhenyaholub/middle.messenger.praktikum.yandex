@@ -26,6 +26,9 @@ import {
   PHONE,
   SECOND_NAME
 } from '../../utils/fieldNames'
+import { connectToUserData } from '../../utils/helpers'
+import { Edit } from '../../components/edit/edit'
+import { type Block } from '../../utils/block'
 
 const button = new RoundedButton({
   type: 'submit',
@@ -149,3 +152,4 @@ const saveButton = new Button({
 const form = new EditForm({ items, button: saveButton })
 
 export const editProps = { back, avatar, form }
+export const EditComponent = connectToUserData(Edit as typeof Block)

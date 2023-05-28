@@ -11,6 +11,7 @@ export interface Options {
   timeout?: number
   headers?: Record<string, string>
   data?: any
+  withCredentials?: boolean
 }
 
 export type OptionsWithoutMethod = Omit<Options, 'method'>

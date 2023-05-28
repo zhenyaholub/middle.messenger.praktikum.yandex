@@ -39,3 +39,7 @@ export const NOTIFICATION_SLICE = {
 export const SEARCH_SLICE = {
   search: { isLabelVisible: true }
 }
+
+export const USER_SLICE = {
+  user: { id: null }
+}
